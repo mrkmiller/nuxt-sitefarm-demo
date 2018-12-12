@@ -1,0 +1,64 @@
+////
+/// Box Wrapper Container Object
+/// Adapted from Inuit CSS
+/// @group Objects
+////
+
+/// Box Wrapper Object
+///
+/// Useful for when multiple boxes need wrapped in a padded box.
+%o-box-wrapper {
+  @include clearfix();
+  background-color: $white;
+  margin-bottom: $spacer--large;
+  padding: $spacer--large;
+
+  @include breakpoint($bp-wide--up) {
+    padding: $spacer--large + $spacer--small;
+  }
+}
+
+/// Box Wrapper Object: Flush `Modifier`
+///
+/// Removes the bottom margin
+%o-box-wrapper--flush {
+  margin-bottom: 0;
+}
+
+/// Box Wrapper Object: Small `Modifier`
+%o-box-wrapper--small {
+  @extend %o-box-wrapper;
+  padding: $spacer;
+
+  @include breakpoint($bp-wide--up) {
+    padding: $spacer + $spacer--small;
+  }
+}
+
+/// Box Wrapper Object: Large `Modifier`
+%o-box-wrapper--large {
+  @extend %o-box-wrapper;
+  padding: $spacer--large + $spacer;
+
+  @include breakpoint($bp-wide--up) {
+    padding: $spacer--huge;
+  }
+}
+
+
+// Assign placeholders to classes
+.o-box-wrapper {
+  @extend %o-box-wrapper;
+}
+
+.o-box-wrapper--flush {
+  @extend %o-box-wrapper--flush;
+}
+
+.o-box-wrapper--small {
+  @extend %o-box-wrapper--small;
+}
+
+.o-box-wrapper--large {
+  @extend %o-box-wrapper--large;
+}

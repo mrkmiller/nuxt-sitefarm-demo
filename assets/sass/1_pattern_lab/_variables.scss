@@ -1,0 +1,374 @@
+//------------------------------------
+//  $VARIABLES
+//------------------------------------
+
+// Base colors
+// -------------------------
+
+$black:                 #000;
+$white:                 #fff;
+
+// UC Davis colors - http://marketingtoolbox.ucdavis.edu/identity-guide/color.html
+// -------------------------
+
+$ucd-blue:              #002855;
+$ucd-gold:              #daaa00;
+
+// Tints
+$ucd-blue-100:          $ucd-blue;
+$ucd-blue-90:           #1a3e68;
+$ucd-blue-80:           #335379;
+$ucd-blue-70:           #4d688c;
+$ucd-blue-60:           #667d9d;
+$ucd-blue-50:           #7f93ae;
+$ucd-blue-40:           #99a9bf;
+$ucd-blue-30:           #b2bdcf;
+$ucd-blue-20:           #ccd4e0;
+$ucd-blue-10:           #e5e9ef;
+
+$ucd-gold-100:          $ucd-gold;
+$ucd-gold-90:           #deb31a;
+$ucd-gold-80:           #e1bb33;
+$ucd-gold-70:           #e5c44d;
+$ucd-gold-60:           #e9cc66;
+$ucd-gold-50:           #ecd47f;
+$ucd-gold-40:           #f0dd99;
+$ucd-gold-30:           #f4e5b2;
+$ucd-gold-20:           #f8eecc;
+$ucd-gold-10:           #fbf6e5;
+
+
+// UC Davis secondary colors
+// -------------------------
+
+// Bright Colors
+$unitrans-red:          #ba0c2f;
+$western-redbud:        #c6007e;
+$california-poppy:      #ed8b00;
+$golden-lupine:         #ffcd00;
+$sunny-grass:           #78be20;
+$sky-blue:              #00b5e2;
+$rec-pool-blue:         #008eaa;
+$wine-grape:            #642667;
+
+// Neutral colors
+$mu-brick:              #c26e60;
+$hart-hall-stucco:      #e6a65d;
+$sage-green:            #9caf88;
+$evergreen:             #00573f;
+$winter-sky-gray:       #5b7f95;
+$centennial-walk-gray:  #b1b3b3;
+$cork-oak:              #aca39a;
+$south-hall-brown:      #4f2c1d;
+
+// Category Brands
+$category-brands: (
+  ("admin-blue",            $ucd-blue-80),
+  ("unitrans-red",          $unitrans-red),
+  ("western-redbud",        $western-redbud),
+  ("california-poppy",      $california-poppy),
+  ("golden-lupine",         $golden-lupine),
+  ("sunny-grass",           $sunny-grass),
+  ("sky-blue",              $sky-blue),
+  ("rec-pool-blue",         $rec-pool-blue),
+  ("wine-grape",            $wine-grape),
+  ("mu-brick",              $mu-brick),
+  ("hart-hall-stucco",      $hart-hall-stucco),
+  ("sage-green",            $sage-green),
+  ("evergreen",             $evergreen),
+  ("winter-sky-gray",       $winter-sky-gray),
+  ("centennial-walk-gray",  $centennial-walk-gray),
+  ("cork-oak",              $cork-oak),
+  ("south-hall-brown",      $south-hall-brown),
+);
+
+// Category Brands Accessibility Alteration for Contrast
+$category-brands--dark-on-light:
+"california-poppy"
+"golden-lupine"
+"sunny-grass"
+"sky-blue"
+"mu-brick"
+"hart-hall-stucco"
+"sage-green"
+"centennial-walk-gray"
+"cork-oak";
+
+// Grays
+// -------------------------
+
+$gray-darker:           lighten($black, 13.5%) !default; // #222
+$gray-dark:             lighten($black, 20%) !default;   // #333
+$gray:                  lighten($black, 33.5%) !default; // #555
+$gray-light:            lighten($black, 60%) !default;   // #999
+$gray-lighter:          lighten($black, 93.5%) !default; // #eee
+
+
+// Brand colors
+// -------------------------
+
+$brand--primary:        $ucd-blue !default;
+$brand--secondary:      $ucd-gold !default;
+$brand--success:        $evergreen !default;
+$brand--warning:        $california-poppy !default;
+$brand--danger:         $unitrans-red !default;
+$brand--info:           $winter-sky-gray !default;
+$brand--gray:           $ucd-blue-10 !default;
+
+// Tints - It is preferable to use these as opposed to fixed UC Davis colors
+$brand--primary-90:     tint($brand--primary, 10) !default;
+$brand--primary-80:     tint($brand--primary, 19.9) !default;
+$brand--primary-70:     tint($brand--primary, 30) !default;
+$brand--primary-60:     tint($brand--primary, 40) !default;
+$brand--primary-50:     tint($brand--primary, 49.7) !default;
+$brand--primary-40:     tint($brand--primary, 60) !default;
+$brand--primary-30:     tint($brand--primary, 69.7) !default;
+$brand--primary-20:     tint($brand--primary, 80) !default;
+$brand--primary-10:     tint($brand--primary, 90) !default;
+
+$brand--secondary-90:   tint($brand--secondary, 10) !default;
+$brand--secondary-80:   tint($brand--secondary, 20) !default;
+$brand--secondary-70:   tint($brand--secondary, 30) !default;
+$brand--secondary-60:   tint($brand--secondary, 40) !default;
+$brand--secondary-50:   tint($brand--secondary, 49.9) !default;
+$brand--secondary-40:   tint($brand--secondary, 60) !default;
+$brand--secondary-30:   tint($brand--secondary, 70) !default;
+$brand--secondary-20:   tint($brand--secondary, 80) !default;
+$brand--secondary-10:   tint($brand--secondary, 90) !default;
+
+
+// Links
+// -------------------------
+
+$link-color:                  #06c !default;
+$link-color-hover:            lighten($link-color, 15%) !default;
+$link-color--secondary:       #003570 !default;
+$link-color-hover--secondary: darken($link-color--secondary, 15%) !default;
+
+
+// Typography
+// -------------------------
+
+$font-color:               #333 !default;
+
+$font-family--sans-serif:  "proxima-nova", "Lucida Grande", "Lucida Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+$font-family--serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family--monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family:              $font-family--sans-serif !default;
+$font-family--headings:    $font-family--serif !default;
+
+$font-size:                16px !default;
+$font-size--large:         ceil($font-size * 1.25) !default; // ~20px
+$font-size--small:         ceil($font-size * 0.85) !default; // ~14px
+
+$line-height:              ceil($font-size * 1.618) !default; // ~26px Use the golden ratio to find an ideal line height based off the font size
+$line-height--small:       1.3 !default;
+
+$font-weight:              400 !default;
+$font-weight--light:       200 !default;
+$font-weight--bold:        700 !default;
+
+
+// Default Spacing Units
+// -------------------------
+
+$spacer:                1em !default;
+$spacer--tiny:          $spacer / 4 !default;
+$spacer--small:         $spacer / 2 !default;
+$spacer--large:         $spacer * 2 !default;
+$spacer--huge:          $spacer * 4 !default;
+
+$fixed-spacer:          $font-size !default; // This is 1em at default.
+$fixed-spacer--tiny:    $fixed-spacer / 4 !default;
+$fixed-spacer--small:   $fixed-spacer / 2 !default;
+$fixed-spacer--large:   $fixed-spacer * 2 !default;
+$fixed-spacer--huge:    $fixed-spacer * 4 !default;
+
+
+// Components
+// -------------------------
+
+$border-radius:         4px !default;
+$border-radius--large:  6px !default;
+$border-radius--small:  3px !default;
+
+
+// Components
+// -------------------------
+$table-border-color:    $brand--primary-50 !default;
+$table-bg-accent:       $brand--primary-10 !default;
+$table-bg-hover:        $brand--secondary-10 !default;
+
+
+// Forms
+// -------------------------
+
+$input-bg:                  #fff !default;
+$input-bg--disabled:        $gray-lighter !default;
+
+$input-color:               $gray !default;
+$input-border-color:        #ccc !default;
+$input-border-radius:       $border-radius !default;
+$input-border-focus:        #66afe9 !default;
+$input-bg-focus:            $brand--secondary-10 !default;
+
+$input-color-placeholder:   $gray-light !default;
+
+$input-height:              $spacer--large + $spacer--small !default;
+
+$legend-color:              $gray-dark !default;
+$legend-border-color:       #e5e5e5 !default;
+
+
+// Miscellaneous
+// -------------------------
+
+// Hr border color
+$hr-border:                   $brand--primary !default;
+
+// Horizontal forms & lists
+$component-offset-horizontal: 180px !default;
+
+// Off-canvas Tray
+$off-canvas-width:            300px !default;
+
+// Default transition time
+$transition-time:             0.3s !default;
+
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+$zindex-component-bg:     800 !default;
+$zindex-component-mg:     810 !default;
+$zindex-component-fg:     820 !default;
+$zindex-navbar:           830 !default;
+$zindex-dropdown:         840 !default;
+$zindex-popover:          850 !default;
+$zindex-tooltip:          860 !default;
+$zindex-navbar-fixed:     1000 !default;
+$zindex-modal-background: 1100 !default;
+$zindex-modal:            1200 !default;
+
+
+// Primary Menu
+// -------------------------
+
+$menu-background-color:         $white !default;
+$menu-background-sub-color:     $brand--secondary-30 !default;
+$menu-background-color-active:  $brand--secondary !default;
+$menu-dropdown-arrow-color:     $brand--primary !default;
+// Menu dimensions
+$menu-vert-width:       310px !default;
+$menu-icon-width:       40% !default;
+$menu-height:           66px !default;
+
+
+// Header
+// -------------------------
+$header-height:             112px !default;
+$header-height--md:         72px !default;
+$header-height--sm:         50px !default;
+$header-height--scrolling:  60px !default;
+$header-bar-height:         50px !default;
+
+
+// Object Overrides
+// -------------------------
+// Override objects here or enable modifiers like $o-media-enable--flush
+$o-media-gutter:        $spacer !default;
+$o-box-spacer:          $fixed-spacer !default;
+
+// Enable object classes
+$o-box-enable--flush:   true !default;
+$o-box-enable--small:   true !default;
+$o-box-enable--large:   true !default;
+$o-media-enable--rev:   true !default;
+$o-media-enable--flush: true !default;
+$o-media-enable--small: true !default;
+$o-media-enable--large: true !default;
+
+
+// Container sizes
+// -------------------------
+
+// Small screen / tablet
+$container-width:       95% !default;
+
+// Medium screen / desktop
+$container-width--md:   90% !default;
+
+// Large screen / wide desktop
+$container-width--lg:   85% !default;
+
+// X Large screen / huge desktop
+$container-width--xlg:  75% !default;
+
+// Container margin space
+$container-space:       (100% - $container-width) / 2 !default;
+$container-space--md:   (100% - $container-width--md) / 2 !default;
+$container-space--lg:   (100% - $container-width--lg) / 2 !default;
+$container-space--xlg:  (100% - $container-width--xlg) / 2 !default;
+
+
+// Breakpoint Media Queries
+// -------------------------
+
+$media-xsmall:          330px !default;
+$media-small:           480px !default;
+$media-narrow:          768px !default;
+$media-medium:          992px !default;
+$media-wide:            1200px !default;
+$media-huge:            1600px !default;
+
+$media-xsmall-max:      $media-xsmall - 1px;
+$media-small-max:       $media-small - 1px;
+$media-narrow-max:      $media-narrow - 1px;
+$media-medium-max:      $media-medium - 1px;
+$media-wide-max:        $media-wide - 1px;
+$media-huge-max:        $media-huge - 1px;
+
+// Create breakpoints
+$bp-xsmall:             $media-xsmall $media-small-max;
+$bp-small:              $media-small $media-narrow-max;
+$bp-narrow:             $media-narrow $media-medium-max;
+$bp-medium:             $media-medium $media-wide-max;
+$bp-wide:               $media-wide $media-huge-max;
+$bp-huge:               $media-huge;
+
+$bp-xsmall--up:         $media-xsmall;
+$bp-small--up:          $media-small;
+$bp-narrow--up:         $media-narrow;
+$bp-medium--up:         $media-medium;
+$bp-wide--up:           $media-wide;
+
+$bp-xsmall--down:       max-width $media-xsmall-max;
+$bp-small--down:        max-width $media-small-max;
+$bp-narrow--down:       max-width $media-narrow-max;
+$bp-medium--down:       max-width $media-medium-max;
+$bp-wide--down:         max-width $media-wide-max;
+$bp-huge--down:         max-width $media-huge-max;
+
+$bp-narrow--landscape:  ($bp-narrow--down) (orientation landscape);
+
+
+// Setup singularity grid
+// -------------------------
+
+// Grid sizes
+@include add-grid(1); // Mobile
+// Base everything on a 12 column grid
+@include add-grid(12 at $bp-narrow--up);
+@include add-grid(12 at $bp-medium--up);
+@include add-grid(12 at $bp-wide--up);
+
+// Gutters (use 1/3 of a column)
+@include add-gutter(1/3);
+
+// Uncomment to turn debugging for grids
+//.l-container {
+//  @include sgs-change("debug", true);
+//  @include background-grid($color: blue);
+//}

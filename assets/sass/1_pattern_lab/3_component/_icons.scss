@@ -1,0 +1,44 @@
+// Styles content with icons
+
+// Category Brands
+$icons-list: (
+  // MIT License: https://www.iconfinder.com/icons/211633/calendar_icon#size=128
+  ("calendar", "calendar"),
+  // No link back commercial license: https://www.iconfinder.com/icons/274903/gps_home_map_navigation_network_pin_place_technology_web_icon#size=128
+  ("location", "map-pin"),
+  // No link back commercial license: https://www.iconfinder.com/icons/326545/call_phone_icon#size=128
+  ("phone", "phone"),
+  // No link back commercial license: https://www.iconfinder.com/icons/315228/closed_envelope_mail_icon#size=128
+  ("envelope", "envelope"),
+  // Custom Icon
+  ("web", "web"),
+  // MIT Licens: https://www.iconfinder.com/icons/211858/map_icon#size=128
+  ("map", "map"),
+  // Free for Commercial Use: https://www.iconfinder.com/icons/326585/cloud_download_icon#size=128
+  ("download", "download"),
+  // Free for Commercial Use: https://www.iconfinder.com/icons/326483/access_clock_time_icon#size=128
+  ("clock", "clock"),
+  // Custom Icon
+  ("view-more", "view-more"),
+);
+
+.icon {
+  padding-left: $spacer * 1.5;
+
+  &--link {
+    text-decoration: underline;
+  }
+}
+
+//@each $item in $category-brand--list {
+@for $i from 1 through length($icons-list) {
+  // Get the current item
+  $item:        nth($icons-list, $i);
+  // Fetch the name and image from this first item
+  $icon-name:  nth($item, 1);
+  $icon-image: nth($item, 2);
+
+  .icon--#{$icon-name} {
+    background: url("../images/icons/#{$icon-image}.svg") no-repeat 0 center;
+  }
+}

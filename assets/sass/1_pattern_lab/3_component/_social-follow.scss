@@ -1,0 +1,65 @@
+$social-follow-icon-width: 43px;
+
+.social-follow {
+  background: transparent;
+
+  ul {
+    @include reset-list;
+  }
+
+  li {
+    float: left;
+    margin-right: $spacer;
+    margin-bottom: $spacer * .75;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include breakpoint(max-width 303px) {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    @include breakpoint($bp-medium--up) {
+      margin-right: $spacer * 1.4;
+    }
+  }
+
+  a {
+    @include hide-text();
+    display: inline-block;
+    height: $social-follow-icon-width;
+    width: $social-follow-icon-width;
+    background-image: url("../images/social-follow.svg");
+    background-repeat: no-repeat;
+    transition: opacity .35s ease-in-out;
+    opacity: 1;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+
+  // Positioning for each icon's sprite
+  &__facebook {
+    background-position: 0 0;
+  }
+
+  &__twitter {
+    background-position: -$social-follow-icon-width 0;
+  }
+
+  &__instagram {
+    background-position: -$social-follow-icon-width * 2 0;
+  }
+
+  &__youtube {
+    background-position: -$social-follow-icon-width * 3 0;
+  }
+
+  &__linkedin {
+    background-position: -$social-follow-icon-width * 4 0;
+  }
+}

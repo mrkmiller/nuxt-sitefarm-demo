@@ -1,0 +1,76 @@
+// Featured Links
+.instagram-container {
+  @include clearfix();
+  padding: $spacer--small;
+
+  &__brand-image {
+    @include vertical-center();
+    float: left;
+    border-radius: 40px;
+    width: 40px;
+    overflow: hidden;
+  }
+
+  &__user-name {
+    @include vertical-center();
+    float: left;
+    margin-left: $spacer--small;
+    font-weight: $font-weight--bold;
+  }
+
+  &__date-published {
+    @include vertical-center();
+    @include font-size (12px);
+    float: left;
+    height: 100%;
+    color: $gray-light;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 6px;
+      margin: 0 $spacer--small;
+      background-color: $gray-light;
+    }
+  }
+
+  &__featured-image {
+    clear: both;
+    margin-top: $spacer;
+
+    img {
+      display: block;
+      margin: auto;
+    }
+  }
+
+  &__description {
+    display: block;
+    padding: $spacer--small;
+  }
+
+  &__likes-container {
+    position: relative;
+    padding: $spacer--small;
+    color: $gray-light;
+    background-color: $gray-lighter;
+    border-radius: 4px;
+  }
+
+  &__likes {
+    @include font-size($font-size - 2);
+    padding-left: $spacer * 1.2;
+    background: url("../images/heart-instagram.svg");
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: left center;
+  }
+
+  &__insta-button {
+    position: absolute;
+    top: $spacer--small;
+    right: $spacer--small;
+  }
+}

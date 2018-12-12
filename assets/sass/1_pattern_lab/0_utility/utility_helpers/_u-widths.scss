@@ -1,0 +1,21 @@
+// Width Half - Force an element to be half the width of its parent
+.u-width--half {
+  @include breakpoint($bp-small--up, true) {
+    width: 50% !important;
+  }
+}
+
+// Width One-third - Force an element to be one-third the width of its parent
+.u-width--one-third {
+  @include breakpoint($bp-small--up, true) {
+    width: 33% !important;
+  }
+}
+
+
+// Width Two-thirds - Force an element to be two-thirds the width of its parent
+.u-width--two-thirds {
+  @include breakpoint($bp-small--up, true) {
+    width: 66% !important;
+  }
+}

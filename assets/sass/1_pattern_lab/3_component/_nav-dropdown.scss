@@ -1,0 +1,40 @@
+// Simple CSS drop down
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  &__btn {
+    @extend %btn--alt;
+  }
+
+  &__content {
+    @include reset-list();
+    display: none;
+    position: absolute;
+    min-width: 10em;
+    width: 100%;
+    z-index: $zindex-component-fg;
+    margin: 0;
+  }
+
+  &:hover &__content {
+    display: block;
+  }
+
+  &__item {
+    display: block;
+    border: 1px solid $ucd-blue-10;
+    border-bottom: 0;
+    background-color: $white;
+
+    &:last-child {
+      border-bottom: 1px solid $ucd-blue-10;
+    }
+
+    a {
+      display: block;
+      padding: $spacer--small $spacer;
+      line-height: $line-height--small;
+    }
+  }
+}

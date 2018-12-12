@@ -1,0 +1,36 @@
+// Text-Related Elements
+
+p {
+  margin-top: 0;
+  margin-bottom: $spacer;
+}
+
+strong,
+%strong {
+  font-weight: $font-weight--bold;
+}
+
+// Blockquote
+blockquote {
+  @include font-size(18px);
+  border-left: 5px solid $brand--primary-20;
+  margin: inherit;
+  padding-left: $spacer + $spacer--tiny;
+  color: $brand--primary-90;
+  font-style: italic;
+}
+
+// Horizontal Rule
+hr {
+  display: block;
+  border: 0;
+  height: 1px;
+  border-top: 1px solid $hr-border;
+  margin: $spacer--large 0;
+  padding: 0;
+}
+
+abbr {
+  border-bottom: 1px dotted $gray;
+  cursor: help;
+}

@@ -1,0 +1,19 @@
+$max-cols: 5;
+
+@include breakpoint($bp-narrow--up) {
+  @for $i from 2 through 3 {
+    .l-column--#{$i} {
+      column-gap: 2.5em;
+      column-count: $i;
+    }
+  }
+}
+
+@include breakpoint($bp-medium--up) {
+  @for $i from 4 through $max-cols {
+    .l-column--#{$i} {
+      column-gap: 2.5em;
+      column-count: $i;
+    }
+  }
+}

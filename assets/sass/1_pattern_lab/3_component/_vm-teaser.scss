@@ -1,0 +1,136 @@
+// Teaser (view mode)
+$vm-teaser-spacer: $spacer * 1.5;
+
+.vm-teaser {
+  @include font-size($font-size--small, 1.3);
+  border-bottom: 1px dotted #ccc;
+  padding: $vm-teaser-spacer 0;
+
+  @include breakpoint($bp-narrow--up) {
+    @include font-size($font-size);
+    border-bottom: 0;
+  }
+
+  // Remove the top padding on the first item
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  // Add padding back to first child in grouped lists
+  &--grouped:first-of-type {
+    padding-top: $vm-teaser-spacer;
+  }
+
+  // Remove the bottom border on the last item
+  &:last-of-type {
+    border-bottom: 0;
+  }
+
+  &__figure {
+    margin-right: $spacer--small;
+    max-width: 20%;
+    overflow: hidden;
+
+    @include breakpoint($bp-small--up) {
+      margin-right: $spacer;
+      max-width: 25%;
+    }
+  }
+
+  &__title {
+    @include font-size($font-size, 1.1);
+    font-weight: $font-weight--bold;
+
+    @include breakpoint($bp-narrow--up) {
+      @include font-size($font-size--large, $line-height);
+    }
+  }
+
+  &__byline {
+    font-size: .875em; // relative to wrapper
+    color: $gray;
+  }
+
+  &__contact {
+    > * {
+      margin-right: $spacer--small;
+    }
+  }
+
+  &__position,
+  &__categories,
+  &__byline {
+    @extend %list--pipe;
+  }
+
+  &__summary {
+    font-size: 1em; // relative to wrapper
+    line-height: $line-height--small;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__summary,
+  &__contact,
+  &__byline,
+  &__categories {
+    margin-bottom: $spacer--small;
+  }
+
+  // Featured Teaser
+  &--featured {
+    padding: $spacer;
+    background-color: $brand--primary-80;
+    color: $white;
+
+    @include breakpoint($bp-narrow--up) {
+      padding: $vm-teaser-spacer;
+    }
+
+    // make border white for buttons
+    .btn {
+      border-color: $white;
+    }
+
+    // make icons white when in featured vm
+    .icon {
+      filter: brightness(0) invert(1);
+    }
+
+    // add the top space back into featured teasers
+    &:first-of-type {
+      padding-top: $vm-teaser-spacer;
+    }
+
+    // Add some space between featured teasers
+    & + & {
+      margin-top: $vm-teaser-spacer;
+    }
+
+    .vm-teaser__figure {
+      border: 0;
+
+      @include breakpoint($bp-narrow--up) {
+        margin-right: $vm-teaser-spacer;
+      }
+    }
+
+    a,
+    .vm-teaser__title,
+    .vm-teaser__byline,
+    .byline {
+      color: $white;
+
+      &:hover {
+        color: $white;
+      }
+    }
+
+    .vm-teaser__byline span,
+    .vm-teaser__categories li {
+      border-color: $white;
+    }
+  }
+}

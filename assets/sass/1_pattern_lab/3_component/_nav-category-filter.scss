@@ -1,0 +1,83 @@
+// Category Filter
+
+$category-filter-triangle-width: 20px;
+
+.category-filter {
+  @include reset-list();
+
+  &__link {
+    @include link-style-secondary();
+    position: relative;
+    margin-left: 15px;
+    display: flex;
+    align-items: flex-start;
+    padding: $spacer--small $spacer--large $spacer--small $spacer--small;
+    font-weight: $font-weight;
+    line-height: 1.5em;
+    text-decoration: none;
+
+    &:before {
+      display: block;
+      border: 3px solid $brand--secondary;
+      border-radius: 50%;
+      content: " ";
+      flex: none;
+      margin-right: $spacer;
+      transition: all .2s ease-in-out;
+      width: $category-filter-triangle-width;
+      height: $category-filter-triangle-width;
+    }
+
+    &:focus {
+      @include set-focus();
+      outline-offset: -1px;
+      background-color: $input-bg-focus;
+      width: calc(100% - 20px);
+    }
+  }
+
+  &__list-item {
+    position: relative;
+    width: auto;
+    overflow: hidden;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      content: " ";
+    }
+
+    &:hover .category-filter__link {
+      background-color: $brand--primary-20;
+    }
+
+    &:hover:before {
+      @include triangle($brand--primary-20, 40px, 15px, 270);
+    }
+  }
+
+  &__list-item--active {
+    position: relative;
+
+    &:before,
+    &:hover:before {
+      @include triangle($brand--primary-80, 40px, 15px, 270);
+    }
+
+    & .category-filter__link {
+      background-color: $brand--primary-80;
+      color: $white;
+
+      &:before {
+        border-color: $white;
+      }
+    }
+
+    &:hover .category-filter__link {
+      background-color: $brand--primary-80;
+    }
+  }
+}

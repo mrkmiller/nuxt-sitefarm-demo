@@ -1,0 +1,53 @@
+// Align Right
+@mixin u-align--right() {
+  @include breakpoint($bp-small--up, true) {
+    float: right !important;
+    margin-bottom: $spacer;
+    margin-left: $spacer;
+    max-width: 100%; // Needed by ie11.
+  }
+}
+
+.u-align--right {
+  @include u-align--right();
+}
+
+// Align Left
+@mixin u-align--left() {
+  @include breakpoint($bp-small--up, true) {
+    float: left !important;
+    margin-bottom: $spacer;
+    margin-right: $spacer;
+    max-width: 100%; // Needed by ie11.
+  }
+}
+
+.u-align--left {
+  @include u-align--left();
+}
+
+
+// Align Center
+@mixin u-align--center() {
+  margin: 0 auto !important;
+  text-align: center !important;
+
+  // Fix figure and figcaptions when aligned center
+  figure {
+    display: block;
+
+    // Force an immediate child so that it doesn't break stuff in ckeditor
+    > img {
+      width: auto;
+    }
+  }
+
+  figcaption {
+    @include font-size(12px, 18px);
+    display: block;
+  }
+}
+
+.u-align--center {
+  @include u-align--center();
+}

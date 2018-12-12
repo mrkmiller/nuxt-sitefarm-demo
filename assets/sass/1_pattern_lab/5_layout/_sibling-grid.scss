@@ -1,0 +1,39 @@
+// Sibling Grid
+.l-sibling-grid {
+
+  // Half
+  &--half {
+    @include breakpoint($bp-small--up, true) {
+      clear: none;
+      float: left;
+      margin-right: 5%;
+      width: 47.5%;
+    }
+
+    // Last element
+    & + & {
+      margin-right: 0;
+    }
+  }
+
+  // Third
+  &--third {
+    @include breakpoint($bp-small--up) {
+      clear: none;
+      float: left;
+      margin-right: 2%;
+      width: 32%;
+    }
+
+    @include breakpoint($bp-narrow--up, true) {
+      margin-right: 5%;
+      width: 30%;
+    }
+
+    // Last element
+    & + & + & {
+      margin-right: 0;
+    }
+  }
+
+}

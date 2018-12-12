@@ -1,0 +1,43 @@
+// Container
+.l-container {
+  @include clearfix();
+  width: $container-width;
+  margin: 0 auto;
+
+  @include breakpoint($bp-medium--up, true) {
+    width: $container-width--md;
+  }
+  @include breakpoint($bp-wide--up) {
+    width: $container-width--lg;
+  }
+  @include breakpoint($bp-huge) {
+    width: $container-width--xlg;
+  }
+}
+
+.l-container--navigation {
+  @include clearfix();
+
+  @include breakpoint($bp-medium--up, true) {
+    width: $container-width--md;
+    margin: 0 auto;
+  }
+  @include breakpoint($bp-wide--up) {
+    width: $container-width--lg;
+  }
+  @include breakpoint($bp-huge) {
+    width: $container-width--xlg;
+  }
+}
+
+// Fix to prevent horizontal scroll when using Bootstrap Grids
+// Add this to the outermost div
+// http://stackoverflow.com/questions/14270084/overflow-xhidden-doesnt-prevent-content-from-overflowing-in-mobile-browsers
+.l-page {
+  overflow-x: hidden;
+}
+
+// Margin used by pattern lab to give components a bit of space.
+.sg-main {
+  margin: $spacer--small;
+}

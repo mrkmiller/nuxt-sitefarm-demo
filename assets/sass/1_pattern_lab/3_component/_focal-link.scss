@@ -1,0 +1,54 @@
+// Featured Links
+$focal-link-size: 63px;
+
+.focal-link {
+  @extend %o-media;
+  @include link-style-secondary();
+  align-items: center;
+  padding: $spacer;
+  text-decoration: none;
+  transition: background-color .2s ease-in-out;
+
+  &:hover {
+    background-color: $brand--secondary-10;
+  }
+
+  &__figure {
+    @extend %o-media__figure;
+
+    // Sizing uploaded img's to match svg sprite
+    img {
+      width: $focal-link-size;
+    }
+  }
+
+  &__body {
+    @extend %o-media__body;
+    @include font-size(17px);
+  }
+
+  // Reverse the image to the right side
+  &--rev {
+    @extend %o-media--rev;
+  }
+
+  // Font Awesome icons for when not using an <img> tag. Add this to the &__figure div
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $focal-link-size;
+    width: $focal-link-size;
+    background-color: $brand--primary;
+    border-radius: 50%;
+    color: $white;
+  }
+
+  .footer & {
+    background-color: $ucd-blue-90;
+
+    &:hover {
+      background-color: $ucd-blue-10;
+    }
+  }
+}

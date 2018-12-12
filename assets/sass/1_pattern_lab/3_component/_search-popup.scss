@@ -1,0 +1,190 @@
+// Search PopUp
+$search-popup-font-size: 60px;
+$search-popup-mobile-input-height: 40px;
+$search-popup-submit-size: $search-popup-font-size;
+$search-popup-submit-size--mobile: $search-popup-mobile-input-height + 14px;
+$search-popup-close-size: $search-popup-submit-size / 1.5;
+$search-popup-nav-icon-size: $menu-height - ($menu-height / 4);
+
+// Create a placeholder for the basic search popup icon
+%search-popup__icon {
+  @include hide-text();
+  border: 3px solid $brand--primary-20;
+  padding: 0;
+  background: url(../images/icon-search.svg) no-repeat center center;
+  background-size: 50%;
+  border-radius: 50%;
+  transition: height .2s ease-in-out, width .2s ease-in-out, top .2s ease-in-out;
+
+  &:hover {
+    border-color: $brand--secondary;
+  }
+}
+
+.search-popup {
+  @include breakpoint($bp-medium--down) {
+    padding: $spacer;
+    background-color: $brand--primary-80;
+  }
+
+  @include breakpoint($bp-medium--up, true) {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: $zindex-popover;
+    height: 100%;
+    background-color: rgba($white, 0.97);
+    opacity: 0;
+    text-align: center;
+    transition: opacity $transition-time;
+    visibility: hidden;
+
+    .l-header--fixed & {
+      top: $header-bar-height;
+    }
+  }
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // Toggle on the main navbar to open up the search popup.
+  &__open {
+    @extend %search-popup__icon;
+    display: none;
+    height: $search-popup-nav-icon-size;
+    width: $search-popup-nav-icon-size;
+    margin-top: $menu-height / 8;
+
+    @include breakpoint($bp-medium--up, true) {
+      display: block;
+    }
+  }
+
+  &__container {
+    position: relative;
+    height: $input-height;
+
+    @include breakpoint($bp-medium--up, true) {
+      @include vertical-center();
+      height: auto;
+      margin-top: -$header-bar-height;
+    }
+  }
+
+  &__label {
+    display: none;
+
+    .search-popup--show-label & {
+      @include breakpoint($bp-medium--up) {
+        display: block;
+      }
+    }
+  }
+
+  &__input {
+    border: 0;
+    height: $search-popup-mobile-input-height;
+    padding-right: $search-popup-submit-size / 1.5;
+    width: 95%;
+    background-color: $white;
+
+    @include breakpoint($bp-medium--up, true) {
+      @include font-size($search-popup-font-size);
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid $brand--primary-10;
+      border-bottom: 1px solid $brand--primary-10;
+      height: auto;
+      padding: 0;
+      width: 100%;
+      box-shadow: none;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    @include breakpoint($bp-wide--up) {
+      @include font-size(80px);
+    }
+
+    &:focus {
+      @include breakpoint($bp-medium--up, true) {
+        background-color: #f7f7f7;
+        border-color: $brand--primary-10;
+      }
+    }
+  }
+
+  // A single search submit button with a magnify glass icon
+  &__submit {
+    @extend %search-popup__icon;
+    @include font-size($search-popup-font-size, $search-popup-submit-size);
+    @include vertical-center();
+    position: absolute;
+    right: 10px;
+    z-index: 3;
+    height: $search-popup-submit-size;
+    width: $search-popup-submit-size;
+    background-color: $white;
+    box-shadow: none;
+
+    @include breakpoint($bp-medium--down) {
+      right: -5px;
+      height: $search-popup-submit-size--mobile;
+      width: $search-popup-submit-size--mobile;
+      border-color: $brand--primary-80;
+
+      &:hover {
+        height: $search-popup-submit-size--mobile + 4px;
+        width: $search-popup-submit-size--mobile + 4px;
+      }
+    }
+
+    @include breakpoint($bp-wide--up) {
+      height: $search-popup-submit-size * 1.4;
+      width: $search-popup-submit-size * 1.4;
+    }
+  }
+
+  // Close button to cancel out of the search popup overlay
+  &__close {
+    @include hide-text();
+    position: absolute;
+    right: $spacer--large;
+    top: $spacer--large;
+    background: none;
+    border: 0;
+    height: $search-popup-close-size;
+    padding: 0;
+    width: $search-popup-close-size;
+    cursor: pointer;
+
+    // Hide in Mobile
+    @include breakpoint($bp-medium--down) {
+      display: none;
+    }
+  }
+
+  &__close-icon {
+    display: block;
+    height: 3px;
+    width: $search-popup-close-size;
+    background-color: $gray-light;
+    transform: rotate(45deg);
+
+    &:before {
+      left: 0;
+      position: absolute;
+      z-index: $zindex-navbar;
+      height: 100%;
+      width: 100%;
+      background-color: $gray-light;
+      content: "";
+      transform: rotate(90deg);
+    }
+  }
+
+}

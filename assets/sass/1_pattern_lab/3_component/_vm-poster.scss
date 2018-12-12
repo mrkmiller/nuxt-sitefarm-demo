@@ -1,0 +1,57 @@
+.vm-poster {
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  @include breakpoint($bp-small--down) {
+    @include font-size(10px, 1.3);
+  }
+
+  &__body {
+    position: absolute;
+    z-index: $zindex-component-fg;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba($brand--primary-80, .8);
+    transition: background-color 1s ease;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    margin-left: $spacer;
+    width: 35px;
+    background: url("../images/read-arrow.svg") no-repeat 0 center;
+    background-size: 100%;
+
+    @include breakpoint($bp-small--up) {
+      width: 50px;
+      margin-left: -50px;
+      opacity: 0;
+      transition: margin-left 1s ease, opacity 1s ease;
+    }
+
+    .vm-poster:hover & {
+      margin-left: $spacer;
+      opacity: 1;
+    }
+  }
+
+  &__body-text {
+    padding: $spacer;
+    color: $white;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    color: $white;
+
+    @include breakpoint($bp-small--down) {
+      @include font-size(14px, 1.4);
+    }
+  }
+}

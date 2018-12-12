@@ -1,0 +1,240 @@
+// Quick Navigation
+$quick-links-title-height: 36px;
+$quick-links-list-offset: $spacer * 7.5;
+$quick-links-btn-bg: $brand--primary-20;
+
+@mixin quick-links-highlight() {
+  border-top: 0;
+
+  .menu {
+    padding-top: $quick-links-list-offset;
+  }
+
+  li:first-child,
+  li:nth-child(2),
+  li:nth-child(3) {
+    position: absolute;
+    top: 7.5em;
+    left: 0;
+    border-bottom: 1px solid $white;
+    width: 100%;
+    margin-top: -$quick-links-list-offset;
+    background-color: $brand--primary-10;
+
+    a {
+      font-weight: $font-weight--bold;
+      display: block;
+      padding: $spacer--small $spacer;
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 10%;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $brand--secondary-40;
+        text-decoration: none;
+      }
+    }
+  }
+
+  li:nth-child(2) {
+    margin-top: -($spacer * 5.05);
+  }
+
+  li:nth-child(3) {
+    margin-top: -($spacer * 2.6);
+  }
+
+}
+
+.quick-links {
+  clear: both;
+  background-color: $white;
+
+  a {
+    @include link-style-secondary();
+  }
+
+  @include breakpoint($bp-medium--down) {
+    a {
+      display: block;
+      border-bottom: 1px solid $gray;
+      padding-left: 1em;
+      background: $white;
+      font-weight: $font-weight--bold;
+      line-height: $menu-height;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover,
+      &:focus {
+        background: $menu-background-color-active;
+      }
+
+      .active {
+        background: $menu-background-color-active;
+      }
+    }
+  }
+
+  @include breakpoint($bp-medium--up) {
+    position: absolute;
+    right: 0;
+    top: $quick-links-title-height;
+    width: 20em;
+    box-shadow: 0 1px 1px rgba($brand--primary, .3);
+    border-top: 1px solid $quick-links-btn-bg;
+
+    .menu {
+      position: relative;
+      padding: $spacer 0;
+    }
+
+    a {
+      display: block;
+      padding: $spacer--tiny * 2 $spacer;
+      font-weight: $font-weight;
+      line-height: 1.35;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Style the quicklinks like the WWW homesite does
+  &--home-site {
+    @include breakpoint($bp-medium--up, true) {
+      @include quick-links-highlight();
+
+      li:first-child a {
+        padding-left: $spacer * 2.3;
+        background-image: url("../images/user_icon.svg");
+      }
+
+      li:nth-child(2) a {
+        padding-left: $spacer * 2.3;
+        background-image: url("../images/checkbox_icon.svg");
+      }
+
+      li:nth-child(3) a {
+        padding-left: $spacer * 2.3;
+        background-image: url("../images/gift_icon.svg");
+      }
+    }
+  }
+
+  &--highlight {
+    @include breakpoint($bp-medium--up, true) {
+      @include quick-links-highlight();
+    }
+  }
+
+  // Display the menu as two columns
+  &--two-columns {
+    @include breakpoint($bp-medium--up, true) {
+      .menu {
+        column-count: 2;
+        column-gap: 0;
+      }
+
+      a {
+        break-inside: avoid;
+      }
+    }
+  }
+
+  // The "Quick Links" text that is clicked to drop down the menu
+  &__title {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding-left: $spacer;
+    line-height: $menu-height;
+    color: $white;
+    cursor: pointer;
+    transition: padding .2s ease-in-out;
+
+    @include breakpoint($bp-medium--down) {
+      background-color: $brand--primary-80;
+    }
+
+    @include breakpoint($bp-medium--up, true) {
+      @include clearfix();
+      @include font-size(16px, $quick-links-title-height);
+      float: right;
+      padding: 0 $spacer--large 0 $spacer--small;
+      background-color: $quick-links-btn-bg;
+      color: $brand--primary;
+      font-weight: $font-weight;
+
+      // Left angle
+      &:before {
+        @include triangle($quick-links-btn-bg, $quick-links-title-height, 10px, 45);
+        @include force-anti-alias();
+        position: absolute;
+        left: -10px;
+        top: 0;
+        height: $quick-links-title-height;
+        width: 10px;
+        content: "";
+
+        .is-fixed & {
+          border-bottom-color: $white;
+        }
+      }
+
+      // Right chevron icon
+      &:after {
+        position: absolute;
+        right: $spacer;
+        top: 50%;
+        height: 10px;
+        margin-top: -5px;
+        width: 5px;
+        content: "";
+        background: url("../images/chevron-white.svg") no-repeat;
+        transform: scale(1.5);
+        transition: all .2s ease-in;
+
+        .is-fixed & {
+          background-image: url("../images/chevron.svg");
+        }
+      }
+
+      // If using a sticky fixed header
+      .is-fixed & {
+        background-color: $white;
+      }
+
+      // The submenu toggle is not used in the desktop view
+      .submenu-toggle {
+        display: none;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      padding-left: $spacer;
+      color: $brand--primary;
+      font-weight: $font-weight--bold;
+      text-decoration: none;
+
+      @include breakpoint($bp-medium--down, true) {
+        background-color: $menu-background-color-active;
+      }
+
+      @include breakpoint($bp-medium--up, true) {
+        font-weight: $font-weight;
+        outline: none;
+
+        // Turn the chevron to face down
+        &:after {
+          transform: rotate(90deg) scale(1.5);
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,22 @@
+// Global classes
+
+// Reset all Menus lists
+.menu {
+  @include reset-list();
+
+  li {
+    @include reset-list();
+  }
+}
+
+// Links to more content
+.view-all {
+  display: block;
+  border-top: 1px solid $brand--primary-50;
+  padding-top: $spacer--small;
+}
+
+// Provide themed underline for components
+.sf-underline {
+  border-bottom: 1px solid $brand--primary-20;
+}

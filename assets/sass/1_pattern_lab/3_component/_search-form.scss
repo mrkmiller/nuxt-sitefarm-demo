@@ -1,0 +1,58 @@
+// Basic short search form
+.search-form {
+  position: relative;
+  background: $white;
+
+  &--bordered {
+    border: 1px solid $brand--gray;
+  }
+
+  &__input {
+    @include font-size($font-size--large);
+    position: relative;
+    border: 0;
+    height: $spacer * 3;
+    width: 100%;
+    padding-right: 53px;
+    background: transparent;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: $brand--primary;
+    font-style: italic;
+    line-height: 24px;
+
+    &--border {
+      border: 1px solid $brand--primary-20;
+    }
+  }
+
+  &__submit {
+    @include hide-text();
+    text-indent: 200%; // Fix for some browsers that show text in the padding
+    position: absolute;
+    top: 19%;
+    right: 3px;
+    width: 50px;
+    border: 0;
+    background: transparent url(../images/icon-search.svg) no-repeat center center;
+    background-size: 50%;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  &__input,
+  &__submit {
+    &:focus {
+      &:focus {
+        @include set-focus("reset");
+        @include set-focus();
+        background-color: transparent;
+        outline: 0;
+      }
+    }
+  }
+
+  &--border {
+    border: 1px solid $brand--primary-20;
+  }
+}

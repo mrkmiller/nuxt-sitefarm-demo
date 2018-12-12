@@ -1,0 +1,115 @@
+.marketing-highlight {
+  display: block;
+  background-color: $white;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+
+  &__body {
+    position: relative;
+    padding: $spacer * 1.5 $spacer * 1.5 $spacer;
+  }
+
+  &__type {
+    @include circle($spacer * 4);
+    @include font-size(28px, 22px);
+    position: absolute;
+    right: $spacer;
+    top: -$spacer * 3;
+    z-index: $zindex-component-fg;
+    padding: $spacer--tiny;
+    background-color: $ucd-blue;
+    color: $white;
+    font-weight: $font-weight--bold;
+    font-style: normal;
+    transition: transform $transition-time ease-in-out;
+
+    @include breakpoint($bp-small--up) {
+      @include font-size(28px, 27px);
+    }
+
+    // Vertically center the text
+    span {
+      @include vertical-center();
+      display: block;
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: $zindex-component-bg;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      transition: all $transition-time ease-in-out;
+    }
+
+    &:after {
+      @include force-anti-alias();
+      @include triangle($white, 200px, 1600px, 45);
+      bottom: -1px;
+      position: absolute;
+      z-index: $zindex-component-mg;
+      transition: border $transition-time ease-in-out;
+      content: " ";
+    }
+  }
+
+  &__title {
+    @include heading--highlight();
+  }
+
+  &__cta {
+    @include font-size($font-size--large);
+    display: inline-block;
+    margin-top: $spacer;
+    width: 70%;
+    color: $gray;
+    font-weight: $font-weight--bold;
+    text-align: center;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    img {
+      transform: scale(1.05);
+    }
+
+    .marketing-highlight__image:after {
+      @include triangle($white, 230px, 1600px, 45);
+    }
+
+    .marketing-highlight__type {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Alternate style
+.marketing-highlight--featured {
+
+  .marketing-highlight__image:after {
+    @include triangle($white, 100px, 1600px, -45);
+    right: 0;
+  }
+
+  &:hover {
+
+    .marketing-highlight__image:after {
+      @include triangle($white, 130px, 1600px, -45);
+    }
+  }
+
+  .marketing-highlight__title {
+    @include heading--highlight(false);
+  }
+
+  .marketing-highlight__body {
+    min-height: $spacer * 20;
+    padding-top: $spacer * 3;
+  }
+}

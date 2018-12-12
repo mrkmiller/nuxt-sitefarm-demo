@@ -1,0 +1,114 @@
+////
+/// The Box object simply boxes off content.
+/// Adapted from Inuit CSS
+/// @link https://github.com/inuitcss/objects.box/blob/master/_objects.box.scss
+/// @group Objects
+////
+
+/// Box Object: Default Spacing unit
+$o-box-spacer:          16px !default; // This is 1em at default.
+/// Box Object: Tiny Spacing unit
+$o-box-spacer--tiny:    round($o-box-spacer / 4) !default;
+/// Box Object: Small Spacing unit
+$o-box-spacer--small:   round($o-box-spacer / 2) !default;
+/// Box Object: Large Spacing unit
+$o-box-spacer--large:   round($o-box-spacer * 2) !default;
+/// Box Object: Huge Spacing unit
+$o-box-spacer--huge:    round($o-box-spacer * 4) !default;
+
+// Enable or disable object classes
+
+/// Box Object: Enable the `flush` modifier class
+$o-box-enable--flush:   false !default;
+/// Box Object: Enable the `tiny` modifier class
+$o-box-enable--tiny:    false !default;
+/// Box Object: Enable the `small` modifier class
+$o-box-enable--small:   false !default;
+/// Box Object: Enable the `large` modifier class
+$o-box-enable--large:   false !default;
+/// Box Object: Enable the `huge` modifier class
+$o-box-enable--huge:    false !default;
+
+/// Box Object: The box object simply boxes off content.
+/// Adapted from [Inuit CSS](https://github.com/inuitcss)
+%o-box {
+  @include clearfix();
+  display: block; // So we can apply the `.o-box` class to naturally-inline elements.
+  padding: $o-box-spacer;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/// Box Object: Flush `Modifier`
+///
+/// Removes all padding from the box.
+%o-box--flush {
+  padding: 0;
+}
+
+/// Box Object: Tiny box
+%o-box--tiny {
+  padding: $o-box-spacer--tiny;
+}
+
+/// Box Object: Small box
+%o-box--small {
+  padding: $o-box-spacer--small;
+}
+
+/// Box Object: Large box
+%o-box--large {
+  @include breakpoint($bp-medium--up) {
+    padding: $o-box-spacer--large;
+  }
+}
+
+/// Box Object: Huge box
+%o-box--huge {
+  @include breakpoint($bp-medium--up) {
+    padding: $o-box-spacer--huge;
+  }
+}
+
+
+// Assign placeholders to classes
+.o-box {
+  @extend %o-box;
+}
+
+@if ($o-box-enable--flush == true) {
+  .o-box--flush {
+    @extend %o-box;
+    @extend %o-box--flush;
+  }
+}
+
+@if ($o-box-enable--tiny == true) {
+  .o-box--tiny {
+    @extend %o-box;
+    @extend %o-box--tiny;
+  }
+}
+
+@if ($o-box-enable--small == true) {
+  .o-box--small {
+    @extend %o-box;
+    @extend %o-box--small;
+  }
+}
+
+@if ($o-box-enable--large == true) {
+  .o-box--large {
+    @extend %o-box;
+    @extend %o-box--large;
+  }
+}
+
+@if ($o-box-enable--huge == true) {
+  .o-box--huge {
+    @extend %o-box;
+    @extend %o-box--huge;
+  }
+}

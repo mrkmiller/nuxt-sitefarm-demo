@@ -1,0 +1,14 @@
+// Full Width Region to break outside container
+.l-full-width {
+  @include nested-context($container-width, center);
+
+  @include breakpoint($bp-medium--up) {
+    @include nested-context($container-width--md, center);
+  }
+  @include breakpoint($bp-wide--up) {
+    @include nested-context($container-width--lg, center);
+  }
+  @include breakpoint($bp-huge) {
+    @include nested-context($container-width--xlg, center);
+  }
+}

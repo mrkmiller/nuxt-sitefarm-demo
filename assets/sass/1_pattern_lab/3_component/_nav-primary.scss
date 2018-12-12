@@ -1,0 +1,289 @@
+// Primary Navigation
+.primary-nav {
+  background-color: $menu-background-color;
+  min-height: $menu-height;
+
+  // Set base font sizes for the menu
+  @include breakpoint($bp-medium--up) {
+    @include font-size(15px);
+  }
+
+  @include breakpoint(1100px) {
+    @include font-size(17px);
+  }
+
+  @include breakpoint($bp-huge) {
+    @include font-size(18px);
+  }
+
+  a {
+    display: block;
+    border-bottom: 1px solid $gray;
+    padding-left: $spacer;
+    background: $menu-background-color;
+    color: $brand--primary;
+    font-weight: $font-weight--bold;
+    line-height: $menu-height;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include breakpoint($bp-medium--up) {
+      border-bottom: 0;
+      padding: 0 $spacer;
+      background: none;
+    }
+
+    &:hover {
+      background: $menu-background-color-active;
+    }
+
+    &:focus,
+    .active {
+      background: $menu-background-color-active;
+    }
+  }
+
+  li li a {
+    border-color: $menu-background-color;
+    background: $brand--secondary-10;
+    font-weight: $font-weight;
+    text-transform: none;
+
+    @include breakpoint($bp-medium--up) {
+      font-size: .9375em;
+      line-height: 1.35;
+      padding: $spacer--small $spacer;
+
+      &:focus {
+        background: $menu-background-color-active;
+      }
+    }
+  }
+
+  li li li a {
+    background: $brand--secondary-30;
+  }
+
+  // Desktop mode
+  @include breakpoint($bp-medium--up) {
+
+    // By default, hide submenus
+    ul ul {
+      display: none;
+    }
+
+    // Flow top level horizontally
+    li {
+      float: left;
+
+      &:hover {
+        background: $brand--secondary-20;
+      }
+
+      // set child links back to normal vertical flow
+      li {
+        float: none;
+      }
+    }
+
+    // Justify the top level menu so items are evenly spaced horizontally
+    &--justify {
+      > .menu {
+        .flexbox & {
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+        }
+      }
+
+      li {
+        .flexbox & {
+          flex-basis: 0;
+          flex-grow: 1;
+          float: none;
+          width: auto;
+        }
+      }
+    }
+
+    // Mega Menu
+    &--mega {
+      overflow: hidden;
+      max-height: $menu-height;
+      transition: max-height $transition-time;
+
+      &.is-hover {
+        max-height: 600px; // Set to be larger than needed
+      }
+
+      > .menu {
+        .flexbox & {
+          display: flex;
+          flex-wrap: nowrap;
+        }
+      }
+
+      li {
+        width: 9em;
+
+        .flexbox & {
+          float: none;
+          min-width: 9em;
+          width: auto;
+        }
+      }
+
+      li li a {
+        background: none;
+      }
+    }
+
+    // Superfish Dropdown Menu
+    &--superfish {
+      li {
+        position: relative;
+      }
+
+      ul ul {
+        left: 0;
+        position: absolute;
+        top: 100%;
+        z-index: $zindex-dropdown;
+        display: none;
+        min-width: 12em;
+        background: $white;
+      }
+
+      li:hover,
+      .sf--hover {
+        > ul {
+          display: block;
+        }
+
+        > a {
+          background: $menu-background-color-active;
+        }
+      }
+
+      ul ul ul {
+        left: 100%;
+        top: 0;
+      }
+
+      li li a {
+        background-color: $brand--secondary-10;
+      }
+
+      li li li a {
+        background: $brand--secondary-20;
+      }
+
+      li li li li a {
+        background: $brand--secondary-30;
+      }
+    }
+  }
+}
+
+
+// Sub-Menu Toggle
+.submenu-toggle {
+  display: block;
+  float: right;
+  height: $menu-height;
+  padding-bottom: 1px; //this is to avoid the border
+  width: 50px;
+  background: $brand--primary;
+  text-align: center;
+
+  @include breakpoint($menu-vert-width) {
+    width: $menu-height;
+  }
+
+  @include breakpoint($bp-medium--up) {
+    display: none;
+  }
+
+  a:hover & {
+    background: shade($menu-background-color-active, 40%);
+  }
+
+  &--open .submenu-toggle__icon:before {
+    transform: rotate(0deg);
+  }
+
+  &__icon {
+    @include vertical-center;
+    display: block;
+    left: 30%;
+    z-index: $zindex-navbar;
+    height: 3px;
+    width: $menu-icon-width;
+    background-color: $white;
+    font-size: 0;
+
+    &:before {
+      left: 0;
+      position: absolute;
+      z-index: $zindex-navbar;
+      height: 100%;
+      width: 100%;
+      background-color: $white;
+      content: "";
+      transition: all $transition-time;
+      transform: rotate(90deg);
+    }
+
+    a:hover & {
+      background-color: $white;
+
+      &:before {
+        background-color: $white;
+      }
+    }
+  }
+}
+
+
+// Superfish Arrows
+.sf-arrows {
+
+  .sf-with-ul {
+    padding-right: $spacer--large;
+
+    // styling generated arrows
+    &:after {
+      position: absolute;
+      right: $spacer;
+      top: 50%;
+      height: 10px;
+      margin-top: -5px;
+      width: 5px;
+      border: 0; // Override of default arrow styles.
+      content: "";
+      background: url("../images/chevron.svg") no-repeat;
+    }
+  }
+
+  > li > .sf-with-ul:focus:after,
+  > li:hover > .sf-with-ul:after,
+  > .sf--hover > .sf-with-ul:after {
+    filter: hue-rotate(180deg) brightness(30%);
+    transform: rotate(90deg);
+  }
+
+  // styling for right-facing arrows
+  ul {
+    .sf-with-ul:after {
+      margin-top: -5px;
+      margin-right: -3px;
+      filter: hue-rotate(180deg) brightness(40%);
+    }
+
+    li > .sf-with-ul:focus:after,
+    li:hover > .sf-with-ul:after,
+    .sf--hover > .sf-with-ul:after {
+      filter: hue-rotate(180deg) brightness(30%);
+    }
+  }
+}

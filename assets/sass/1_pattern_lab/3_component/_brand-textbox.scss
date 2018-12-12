@@ -1,0 +1,27 @@
+// Brand Textbox which will add a category color to the background
+.brand-textbox {
+  padding: $spacer;
+  background-color: $brand--primary;
+  color: $white;
+
+  @include breakpoint($bp-narrow--up) {
+    padding: $fixed-spacer;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+
+  // Make sure that components are White since this has a colored background
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  figcaption,
+  a {
+    color: $white;
+  }
+
+}

@@ -1,0 +1,136 @@
+////
+/// Buttons
+/// @group Buttons
+////
+
+/// Button Generator
+@mixin button() {
+  border: 1px solid $brand--primary;
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  padding: $spacer--small $spacer;
+  background-color: transparent;
+  color: $link-color--secondary;
+  cursor: pointer;
+  font-weight: $font-weight;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  width: auto;
+
+  &:hover,
+  &:focus {
+    background-color: $brand--primary-70;
+    border-color: $brand--primary-70;
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+/// Style a button so that it looks disabled
+@mixin button-disabled() {
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+  pointer-events: none; // Future-proof disabling of clicks
+}
+
+/// Button: Default style
+%btn {
+  @include button();
+}
+
+/// Button: Primary Style `Modifier`
+%btn--primary {
+  @extend %btn;
+  background-color: $brand--primary-80;
+  border: 0;
+  color: $white;
+  font-style: italic;
+}
+
+/// Button: Alternate Style `Modifier`
+%btn--alt {
+  @extend %btn;
+  border: 0;
+  background-color: $brand--gray;
+}
+
+/// Button: Inverted Style `Modifier`
+%btn--invert {
+  @extend %btn;
+  border-color: $white;
+  background-color: rgba($brand--primary, .4);
+  color: $white;
+  transition: all .2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($brand--primary, .7);
+    border-color: $white;
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+/// Button: Disabled `Modifier`
+%btn--disabled {
+  @include button-disabled;
+}
+
+/// Button: Large `Modifier`
+%btn--lg {
+  @include font-size($font-size--large);
+  padding: $spacer--small $spacer;
+}
+
+/// Button: Small `Modifier`
+%btn--sm {
+  padding: $spacer--tiny $spacer--small;
+  font-weight: $font-weight--bold;
+  font-style: normal;
+}
+
+/// Button: Full Width `Modifier`
+%btn--block {
+  display: block;
+  width: 100%;
+}
+
+
+// Assign placeholders to classes
+.btn {
+  @extend %btn;
+}
+
+// .button is used by jquery ui
+.btn--primary,
+.button {
+  @extend %btn--primary;
+}
+
+.btn--alt {
+  @extend %btn--alt;
+}
+
+.btn--invert {
+  @extend %btn--invert;
+}
+
+.btn--disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  @extend %btn--disabled;
+}
+
+.btn--lg {
+  @extend %btn--lg;
+}
+
+.btn--sm {
+  @extend %btn--sm;
+}
+
+.btn--block {
+  @extend %btn--block;
+}

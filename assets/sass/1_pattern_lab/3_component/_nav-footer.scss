@@ -1,0 +1,44 @@
+// Footer Navigation
+
+.footer-nav {
+  color: $white;
+
+  a {
+    display: block;
+    padding: $spacer--tiny * 2 $fixed-spacer;
+    color: $white;
+    font-weight: $font-weight;
+    text-transform: capitalize;
+    transition: background-color .2s ease-in-out;
+
+    @include breakpoint($bp-medium--up) {
+      margin-left: -$fixed-spacer;
+    }
+
+    &:hover {
+      background-color: $brand--primary-90;
+      text-decoration: none;
+    }
+  }
+
+  &__logo {
+    margin-bottom: $spacer;
+
+    a {
+      padding-top: 0;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+    }
+
+    img {
+      width: 70%;
+    }
+  }
+
+  .menu a {
+    text-decoration: none;
+  }
+}

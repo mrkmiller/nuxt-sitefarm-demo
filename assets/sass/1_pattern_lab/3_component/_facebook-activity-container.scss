@@ -1,0 +1,5 @@
+// Featured Links
+.facebook-activity-container {
+  @include clearfix();
+  padding: $spacer--small;
+}

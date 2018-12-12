@@ -1,0 +1,36 @@
+// Mobile Nav Toggle
+.nav-toggle {
+  @include hide-text;
+  float: left;
+  height: $header-bar-height;
+  margin-right: $spacer * .75;
+  width: $header-bar-height;
+  background: rgba($white, .25);
+  transition: background-color $transition-time;
+
+  @include breakpoint($bp-small--up) {
+    margin-right: $spacer;
+  }
+
+  @include breakpoint($bp-medium--up) {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $brand--primary;
+    outline: none;
+  }
+
+  &__icon--menu {
+    @include vertical-center();
+    @include burger(($header-bar-height / 2), 2px, 4px, $white);
+    left: 25%;
+    margin: 0;
+
+    .nav-toggle--active & {
+      @include burger-to-cross();
+    }
+  }
+
+}

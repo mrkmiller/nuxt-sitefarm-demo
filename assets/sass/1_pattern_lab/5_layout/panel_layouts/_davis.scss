@@ -1,0 +1,19 @@
+// Mimics the Panels layout called Brenham
+.l-davis {
+  .l-content {
+    @include breakpoint($bp-medium--up, true) {
+      @include grid-span(8, 5);
+    }
+  }
+
+  .l-sidebar-first,
+  .l-sidebar-second {
+    @include breakpoint($bp-medium--up, true) {
+      @include grid-span(4, 1);
+    }
+  }
+
+  .l-sidebar-second {
+    clear: left;
+  }
+}

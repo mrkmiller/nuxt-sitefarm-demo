@@ -1,0 +1,87 @@
+// Image gallery using PhotoSwipe
+$gallery-spacing: $spacer--small;
+
+
+// Gallery Grid
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 (-$gallery-spacing) $spacer;
+  overflow: hidden;
+  text-align: center;
+
+  &__item {
+    position: relative;
+    margin-bottom: $spacer;
+    padding: 0 $gallery-spacing;
+    width: 50%;
+
+    @include breakpoint($bp-small--up) {
+      width: 33%;
+    }
+
+    @include breakpoint($bp-wide--up) {
+      width: 25%;
+    }
+
+    .no-flexbox & {
+      float: left;
+    }
+  }
+
+  &__title {
+    display: none;
+  }
+
+  // Single Poster image visible
+  &--poster,
+  &--poster & {
+    margin-bottom: 0;
+  }
+
+  &--poster &__item {
+    display: none;
+
+    &:first-child {
+      display: block;
+      margin-bottom: 0;
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &--poster &__title {
+    display: block;
+    width: 100%;
+    padding: $spacer $spacer--large;
+    background: $brand--primary-20;
+    text-align: left;
+  }
+
+  a {
+    display: block;
+
+    // Icon to indicate the image can get bigger in a lightbox window
+    &:after {
+      position: absolute;
+      display: block;
+      right: $spacer;
+      bottom: $spacer--small;
+      height: 32px;
+      width: 32px;
+      background: url(../images/expand.svg);
+      content: "";
+      opacity: 0.6;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover:after {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+}

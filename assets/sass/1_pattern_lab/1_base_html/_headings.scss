@@ -1,0 +1,71 @@
+////
+/// Headings
+/// Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
+/// @group Headings
+////
+
+/// H1 Heading style
+%h1 {
+  @include heading-default();
+  @include font-size(36px);
+  @include link-style-heading();
+}
+
+/// H2 Heading style: Implements the heading--primary() style
+%h2 {
+  @include heading--primary();
+  @include link-style-heading();
+}
+
+/// H3 Heading style: Implements the heading--secondary() style
+%h3 {
+  @include heading--secondary();
+  @include link-style-heading();
+}
+
+/// H4 Heading style
+%h4 {
+  @include heading-default();
+  @include font-size(19px);
+  @include link-style-heading();
+}
+
+/// H5 Heading style
+%h5 {
+  @include heading-default();
+  @include font-size(17px);
+  @include link-style-heading();
+}
+
+/// H6 Heading style
+%h6 {
+  @include heading-default();
+  @include font-size($font-size);
+  @include link-style-heading();
+}
+
+
+// Assign placeholders to H tags
+h1 {
+  @extend %h1;
+}
+
+h2 {
+  @extend %h2;
+}
+
+h3 {
+  @extend %h3;
+}
+
+h4 {
+  @extend %h4;
+}
+
+h5 {
+  @extend %h5;
+}
+
+h6 {
+  @extend %h6;
+}

@@ -1,0 +1,13 @@
+.priority-links {
+  display: flex;
+  flex-wrap: wrap;
+  padding: $spacer--large 0 $spacer;
+  background-color: $white;
+  text-align: center;
+
+  &__item {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 2%;
+  }
+}

@@ -1,0 +1,100 @@
+// Header
+$header-transition-time: .2s;
+
+.l-header {
+
+  // Add this .l-header--fixed class to the body or top level dom element
+  &--fixed {
+    padding-top: $header-bar-height;
+
+    &.is-fixed {
+      .l-main {
+        @include breakpoint($bp-medium--up) {
+          padding-top: $menu-height;
+
+          .has-mega & {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+
+    .header__bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: $zindex-navbar-fixed;
+      width: 100%;
+    }
+  }
+
+  .has-mega & {
+    @include breakpoint($bp-medium--up, true) {
+      padding-bottom: $menu-height;
+    }
+  }
+}
+
+// Navigation
+.l-navbar {
+  position: relative;
+  z-index: $zindex-navbar;
+  height: 100%;
+
+  @include breakpoint($bp-medium--down) {
+    position: absolute;
+    left: 0;
+    top: $header-bar-height;
+  }
+
+  @include breakpoint($bp-medium--up, true) {
+    height: auto;
+    width: 100%;
+  }
+
+  .l-header--fixed &.is-fixed {
+    @include breakpoint($bp-medium--up, true) {
+      position: fixed;
+      top: $header-bar-height;
+      left: 0;
+      right: 0;
+      z-index: $zindex-navbar-fixed;
+      width: 100%;
+    }
+  }
+
+  .has-mega & {
+    position: absolute;
+  }
+
+}
+
+// Search popup in the nav bar
+.l-search-popup {
+  @include breakpoint($bp-medium--up, true) {
+    float: right;
+  }
+}
+
+.l-quick-links {
+  transition: top $header-transition-time ease-in-out;
+
+  @include breakpoint($bp-medium--up, true) {
+    position: absolute;
+    right: $container-space--md;
+    top: -50px;
+
+    .is-fixed & {
+      top: -42px;
+    }
+  }
+
+  @include breakpoint($bp-wide--up) {
+    right: $container-space--lg;
+  }
+
+  @include breakpoint($bp-huge) {
+    right: $container-space--xlg;
+  }
+}

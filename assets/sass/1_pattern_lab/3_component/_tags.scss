@@ -1,0 +1,23 @@
+// Tags Styling
+.tags {
+
+  &__title {
+    @include heading--auxiliary();
+  }
+
+  &__tag {
+    @include link-style-secondary();
+    display: inline-block;
+    margin-bottom: $spacer--small / 1.5;
+    margin-right: $spacer--small / 1.5;
+    padding: $spacer--small $spacer;
+    width: auto;
+    background: $brand--secondary-30;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      background: $brand--secondary-20;
+    }
+  }
+}

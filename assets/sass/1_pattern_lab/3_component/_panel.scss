@@ -1,0 +1,162 @@
+// Panel Titles
+$panel-title-icon-size: 100px;
+
+// Create responsive sprite icons
+$panel-title-icons: (
+  "flask",
+  "bullhorn",
+  "feed",
+  "twitter",
+  "mustang",
+  "line-chart",
+  "instagram",
+  "bulb",
+  "alerts"
+);
+
+// Default each Panel Pane to a white background
+.panel {
+  clear: left;
+  margin-bottom: $spacer--large;
+  background-color: $white;
+  overflow-wrap: break-word;
+
+  &--flush {
+    margin-bottom: 0;
+  }
+
+  &--transparent {
+    background-color: transparent;
+  }
+
+  &__title {
+    @include heading--primary();
+    margin-bottom: $spacer;
+  }
+
+  // Lots of modifiers to affect the title
+
+  // intro title
+  &--intro &__title {
+    @include heading--underline();
+  }
+
+  // intro title
+  &--weighted-underline &__title {
+    @include heading--weighted-underline();
+  }
+
+  // Auxilary title
+  &--auxilary &__title {
+    @include heading--auxiliary();
+  }
+
+  // Title with Icon
+  &--icon &__title {
+    height: $panel-title-icon-size;
+    padding: ($spacer * 1.5) 0 0 75px;
+    background-image: url("../images/title-icons.svg");
+    background-repeat: no-repeat;
+  }
+
+  // Fix margins when a .box class is attached or above
+  &--icon {
+    &.o-box .panel__title,
+    .o-box & .panel__title {
+      margin-top: -$fixed-spacer;
+      margin-left: -$fixed-spacer;
+    }
+
+    @if ($o-box-enable--tiny == true) {
+      &.o-box--tiny .panel__title,
+      .o-box--tiny & .panel__title {
+        margin-top: -$fixed-spacer--tiny;
+        margin-left: -$fixed-spacer--tiny;
+      }
+    }
+
+    @if ($o-box-enable--small == true) {
+      &.o-box--small .panel__title,
+      .o-box--small & .panel__title {
+        margin-top: -$fixed-spacer--small;
+        margin-left: -$fixed-spacer--small;
+      }
+    }
+
+    @if ($o-box-enable--large == true) {
+      &.o-box--large .panel__title,
+      .o-box--large & .panel__title {
+        margin-top: -$fixed-spacer--large;
+        margin-left: -$fixed-spacer--large;
+      }
+    }
+
+    @if ($o-box-enable--huge == true) {
+      &.o-box--huge .panel__title,
+      .o-box--huge & .panel__title {
+        margin-top: -$fixed-spacer--huge;
+        margin-left: -$fixed-spacer--huge;
+      }
+    }
+  }
+
+  // Create icon modifiers for each image in the icon sprite
+  @for $i from 1 through length($panel-title-icons) {
+    $image: nth($panel-title-icons, $i);
+
+    &--icon-#{$image} .panel__title {
+      background-position: 0 (-($panel-title-icon-size * ($i - 1)));
+    }
+  }
+
+  // Wrapper class to convert a block into an collapsable popout in mobile
+  &--mobile-collapse {
+    @include breakpoint($bp-medium--down) {
+      .panel__title {
+        display: block;
+        margin-bottom: 0;
+        padding: $spacer--small $spacer;
+        background-color: $brand--primary-40;
+        color: $white;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        text-align: center;
+
+        // Resets for if other panel title modifiers are applied in desktop
+        height: auto;
+        background-image: none;
+        font-weight: $font-weight--bold;
+
+        &:after {
+          display: none;
+        }
+
+        &:hover,
+        &:focus {
+          background-color: $brand--primary-70;
+          color: $white;
+          text-decoration: none;
+        }
+      }
+
+      .panel__content {
+        margin-top: $spacer;
+      }
+
+      // Remove Box margins for only the normal .o-box size
+      &.o-box,
+      .o-box & {
+        .panel__title {
+          margin: -$fixed-spacer;
+          // Ensure the title button stays on top of the content
+          position: relative;
+          z-index: 2;
+        }
+
+        .panel__content {
+          margin-top: $spacer--large;
+        }
+      }
+    }
+  }
+}

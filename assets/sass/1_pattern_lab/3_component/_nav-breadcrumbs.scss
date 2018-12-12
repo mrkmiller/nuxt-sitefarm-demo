@@ -1,0 +1,29 @@
+.breadcrumbs {
+  margin-bottom: $spacer * 1.75;
+  padding-left: 0;
+  color: $brand--primary-60;
+
+  li {
+    display: inline-block;
+    font-style: italic;
+
+    &:not(:last-child):after {
+      padding: 0 $spacer--tiny;
+      content: " >";
+      color: $brand--primary;
+    }
+
+    a {
+      color: $brand--primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:last-child a {
+      color: $brand--primary-60;
+    }
+  }
+}

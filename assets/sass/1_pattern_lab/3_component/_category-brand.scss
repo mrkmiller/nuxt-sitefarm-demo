@@ -1,0 +1,115 @@
+// Branding colors for Taxonomy Categories
+$category-brand-bg-offset: -23px;
+
+.category-brand {
+
+  &__thumbnail {
+    display: block;
+    border-left: 4px solid $brand--primary-80;
+
+    @include breakpoint($bp-small--up) {
+      border-left-width: 7px;
+    }
+
+    // Fix the border from spilling below the image
+    img {
+      vertical-align: top;
+    }
+  }
+
+  &__arrow:before {
+    display: inline-block;
+    margin: 0 .5em 0 -1.5em;
+    content: "\2192";
+    font-family: Arial;
+    font-size: 1.25em;
+    font-weight: normal;
+    line-height: 1;
+  }
+
+}
+
+// Branding for Focus-box
+.category-brand__background--lighten .list--arrow {
+  @extend %list--flush;
+  @extend %list--white-arrow;
+}
+
+// Branding for Media-Links
+.category-brand__background .media-link__wrapper {
+  color: $white;
+}
+
+//@each $item in $category-brand--list {
+@for $i from 1 through length($category-brands) {
+  // Get the first item
+  $item:        nth($category-brands, $i);
+  // Now fetch the name and color from this first item
+  $brand-name:  nth($item, 1);
+  $brand-color: nth($item, 2);
+
+  // Generic color classes
+  .#{$brand-name},
+  .#{$brand-name} a {
+    color: $brand-color;
+  }
+
+  // Brand wrapper
+  .category-brand--#{$brand-name} {
+
+    // Text color
+    .category-brand__text {
+      color: $brand-color;
+
+      // Invert the text color and background
+      &--knock-out {
+        color: $white;
+        background-color: $brand-color;
+      }
+    }
+
+    // Color the triangle on the Page title
+    .page-title__title:after {
+      border-top-color: $brand-color;
+    }
+
+    .category-brand__background,
+    &.vm-teaser--featured {
+      background-color: $brand-color;
+
+      &--lighten {
+        background-color: tint($brand-color, 65);
+
+        a {
+          color: shade($brand-color, 20);
+        }
+      }
+    }
+
+    // Background colors for branded Media-Links
+    .category-brand__background .media-link__wrapper:hover {
+      background-color: tint($brand-color, 15);
+    }
+
+    .category-brand__thumbnail {
+      border-color: $brand-color;
+    }
+
+    .category-brand__arrow:before {
+      color: $brand-color;
+    }
+
+    .category-brand__circle-icon:before {
+      border-color: $brand-color;
+    }
+
+    // Brand for backgrounds with a slightly transparent background
+    .category-brand__background-opacity {
+      background-color: rgba($brand-color, .8);
+    }
+
+    &:hover .category-brand__background-opacity {
+      background-color: rgba($brand-color, 1);
+    }
+  }
+}

@@ -1,0 +1,178 @@
+// Slideshow using Slick
+
+$slideshow-button-width: 50px;
+$slideshow-thumbnails-button-width: 30px;
+
+// Ajax Loader
+.slick-list {
+  .slick-loading & {
+    background: #fff url("../images/slideshow-ajax-loader.gif") center center no-repeat;
+  }
+}
+
+// Arrows
+.slick-prev,
+.slick-next {
+  @include vertical-center();
+  position: absolute;
+  z-index: $zindex-component-bg;
+  display: block;
+  border: 0;
+  background-repeat: no-repeat;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  opacity: .45;
+  outline: none;
+  transition: opacity $transition-time;
+
+  &:hover,
+  &:focus {
+    opacity: .9;
+  }
+
+  &.slick-disabled {
+    opacity: .2;
+  }
+}
+
+// Main Slideshow
+.slideshow {
+  position: relative;
+
+  &__item {
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    &--high {
+      bottom: auto;
+      top: $spacer;
+    }
+  }
+
+  &__title {
+    @include font-size($font-size--large);
+    float: right;
+    margin: 0 $spacer $spacer;
+    padding: 0 $spacer--tiny;
+    background-color: $white;
+    color: $sky-blue;
+    font-weight: bold;
+
+    @include breakpoint($bp-small--up) {
+      @include font-size(25px);
+    }
+
+    @include breakpoint($bp-narrow--up) {
+      @include font-size(30px);
+    }
+
+    @include breakpoint($bp-medium--up) {
+      @include font-size(40px);
+    }
+  }
+
+  &__knockout {
+    display: inline-block;
+    margin-left: -$spacer--tiny;
+    padding: $spacer--small;
+    background-color: $sky-blue;
+    color: $white;
+  }
+
+  &__caption {
+    @include font-size(12px, 1.3);
+    clear: both;
+    padding: $spacer--small;
+    background: rgba(255, 255, 255, .85);
+    color: $black;
+
+    @include breakpoint($bp-narrow--up) {
+      @include font-size(14px, 1.3);
+      padding: $spacer;
+    }
+  }
+
+
+  // Navigation Controls
+  .slick-prev,
+  .slick-next {
+    height: $slideshow-button-width * 1.5;
+    width: $slideshow-button-width;
+    background-color: transparent;
+    background-image: url("../images/slideshow-buttons.svg");
+    background-position: 0 center;
+
+    @include breakpoint($bp-small--up) {
+      height: $slideshow-button-width * 3;
+    }
+  }
+
+  .slick-prev {
+    left: -1px;
+  }
+
+  .slick-next {
+    right: -1px;
+    background-position: -$slideshow-button-width;
+  }
+
+}
+
+
+// Thumbnails Navigation Controls
+.slider-nav {
+  position: relative;
+  margin-top: -15px;
+
+  @include breakpoint($bp-small--down) {
+    display: none;
+  }
+
+  .slideshow__item {
+    padding: 10px;
+
+    @include breakpoint($bp-narrow--down) {
+      padding: 5px;
+    }
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  .slick-prev,
+  .slick-next {
+    height: $slideshow-thumbnails-button-width;
+    width: $slideshow-thumbnails-button-width;
+    background-color: transparent;
+    background-image: url("../images/slideshow-buttons-small.svg");
+    background-position: -11px center;
+    border-radius: 50%;
+    opacity: .6;
+  }
+
+  .slick-prev {
+    left: 15px;
+  }
+
+  .slick-next {
+    background-position: -59px center;
+    right: 15px;
+  }
+}
+
+
+// Add some space when a slideshow is right next to another
+.slick-slider + .slick-slider {
+  margin-top: $spacer;
+}

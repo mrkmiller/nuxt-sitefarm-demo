@@ -1,0 +1,48 @@
+// Vertical Link
+// Add the .vertical-link--circle modifier to contain the image in a circle.
+.vertical-link {
+  @include link-style-secondary();
+  display: block;
+  margin-bottom: $spacer;
+  text-decoration: none;
+  text-align: center;
+
+  &__figure {
+    display: inline-block;
+    margin-bottom: $spacer--small;
+    transition: transform 0.25s ease-out, border-color 0.25s ease-out;
+
+    .vertical-link--circle & {
+      @include circle-border(5px, $ucd-blue-10);
+      overflow: hidden;
+      height: 100px;
+      width: 100px;
+    }
+
+    .vertical-link:hover &,
+    .vertical-link:focus & {
+      transform: scale(1.1);
+      border-color: $brand--secondary;
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+
+    .vertical-link--circle & {
+      display: inline-block;
+      width: 70%; // Going any less will make font-awesome icons move horizontally.
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__title {
+    @include font-size(16px);
+    font-weight: $font-weight--bold;
+    font-style: normal;
+    text-transform: uppercase;
+  }
+
+}

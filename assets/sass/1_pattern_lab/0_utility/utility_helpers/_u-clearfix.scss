@@ -1,0 +1,11 @@
+// Make an element expand to contain floated children.
+// Uses pseudo-elements (micro clearfix).
+.clearfix,
+.u-clearfix {
+  @include clearfix();
+}
+
+// Clear all floats
+.u-clear {
+  clear: both !important;
+}

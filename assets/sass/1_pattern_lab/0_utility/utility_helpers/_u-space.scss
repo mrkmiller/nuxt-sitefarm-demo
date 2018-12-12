@@ -1,0 +1,43 @@
+// Add some margin spacing
+
+// Direction types
+$u-space-directions: (
+  "top",
+  "right",
+  "bottom",
+  "left"
+);
+
+// Create classes for each direction
+// Example for bottom direction:
+// .u-space-bottom
+// .u-space-bottom--small
+// .u-space-bottom--large
+// .u-space-bottom--flush
+@each $u-space-direction in $u-space-directions {
+
+  .u-space-#{$u-space-direction} {
+    margin-#{$u-space-direction}: $spacer !important;
+
+    // Small margin
+    &--small {
+      margin-#{$u-space-direction}: $spacer--small !important;
+    }
+
+    // Large margin
+    &--large {
+      margin-#{$u-space-direction}: $spacer--large !important;
+    }
+
+    // Remove any previously applied directional margin
+    &--flush {
+      margin-#{$u-space-direction}: 0 !important;
+    }
+  }
+
+}
+
+// Remove all margins
+.u-space--flush {
+  margin: 0 !important;
+}

@@ -1,0 +1,40 @@
+// Marketing Highlight Horizontal
+.marketing-highlight-horizontal {
+  overflow: hidden;
+  padding-bottom: 0;
+
+  &__image {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      transition: all $transition-time ease-in-out;
+    }
+
+    &:after {
+      content: none;
+    }
+  }
+
+  &__body {
+    position: relative;
+    padding: 0;
+  }
+
+  &__title {
+    @include heading--overlay();
+    background-color: $ucd-blue;
+
+    &:after {
+      content: none;
+    }
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
+}

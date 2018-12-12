@@ -1,0 +1,87 @@
+// Forms
+fieldset {
+  border: 1px solid $brand--gray;
+  border-top: 3px solid $brand--primary;
+  margin: $spacer 0;
+  padding: $spacer;
+
+  > legend {
+    @include font-size(18px);
+    padding: $spacer--tiny;
+  }
+}
+
+label {
+  display: block;
+  padding-bottom: $spacer--tiny;
+  font-weight: bold;
+}
+
+/// Form Input: default style for form text boxes
+/// @group Forms
+%form-input {
+  border: 1px solid $input-border-color;
+  border-radius: 0;
+  padding: $spacer--tiny ($spacer--small + $spacer--tiny);
+  background-color: $input-bg;
+  background-image: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  color: $input-color;
+  font-family: inherit;
+  margin: 0;
+  outline: 0;
+
+  &:focus {
+    @include set-focus("form");
+  }
+}
+
+input,
+select,
+textarea {
+  @extend %form-input;
+}
+
+
+input,
+select {
+  height: $input-height;
+}
+
+select {
+  max-width: 100%;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="url"],
+input[type="number"],
+textarea {
+  appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+
+  &:focus {
+    @include set-focus("default");
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  height: auto;
+  width: auto;
+  margin-right: 0.3em;
+}
+
+// Override content-box in Normalize (* isn't specific enough)
+input[type="search"] {
+  box-sizing: border-box;
+}

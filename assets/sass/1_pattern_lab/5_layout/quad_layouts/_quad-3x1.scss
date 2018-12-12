@@ -1,0 +1,29 @@
+// Create 3x1 grid
+.l-quad--3x1 {
+  .l-quad__region {
+    &--first {
+      @include breakpoint($bp-medium--up) {
+        @include grid-span(4, 1);
+      }
+    }
+
+    &--second {
+      @include breakpoint($bp-medium--up) {
+        @include grid-span(4, 5);
+      }
+    }
+
+    &--third {
+      @include breakpoint($bp-medium--up) {
+        @include grid-span(4, 9);
+      }
+    }
+
+    &--fourth {
+      @include breakpoint($bp-medium--up) {
+        @include grid-span(12, 1);
+        clear: both;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.wysiwyg-feature-block {
+  padding-bottom: $spacer;
+  background-color: $brand--primary-80;
+
+  &__body {
+    padding: $spacer $fixed-spacer;
+    color: $white;
+    text-align: left;
+
+    a {
+      border-bottom: 2px dotted $brand--secondary;
+      padding: 0 $spacer--small / 2.5;
+      color: $white;
+      font-weight: $font-weight--bold;
+      text-decoration: none;
+
+      &:hover {
+        border-bottom: 0;
+        background: $brand--primary;
+        color: $white;
+      }
+    }
+
+    h4 {
+      font-weight: $font-weight--light;
+    }
+
+    h4,
+    h5,
+    h6 {
+      color: $white;
+    }
+  }
+
+  &__title {
+    @include font-size($font-size + 2);
+    display: block;
+    margin-top: 0;
+    padding: $spacer $fixed-spacer;
+    background: $brand--primary-90;
+    color: $white;
+    font-weight: $font-weight--bold;
+    font-style: inherit;
+    text-align: left;
+  }
+}

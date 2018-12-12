@@ -1,0 +1,170 @@
+////
+/// Mixins for all heading styles
+/// @group Headings
+////
+
+/// Defaults for all Headings
+/// @param {string} $weight [bold] - font weight for the text. "light" may be
+/// passed to use the lighter font weight.
+@mixin heading-default($weight: "bold") {
+  @include font-size($font-size);
+  margin: .75em 0 .25em;
+  padding: 0;
+  color: $brand--primary;
+  font-style: normal;
+
+  @if $weight == "bold" {
+    font-weight: $font-weight--bold;
+  }
+  @else if($weight == "light") {
+    font-weight: $font-weight--light;
+  }
+
+  // Remove the top margin on the first elements so that there aren't issues with
+  // backgrounds starting in the wrong place.
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+/// Primary Heading
+@mixin heading--primary() {
+  @include heading-default();
+  @include font-size(25px);
+}
+
+/// Secondary Heading
+@mixin heading--secondary() {
+  @include heading-default();
+  @include font-size(23px);
+  color: $brand--primary-80;
+}
+
+/// Auxiliary Heading
+@mixin heading--auxiliary() {
+  @include heading--secondary();
+  margin-bottom: $spacer--small;
+  color: $brand--primary-60;
+  font-style: italic;
+  font-weight: $font-weight--bold;
+}
+
+/// Highlight Heading
+/// @param {boolean} $line [true] - Set to FALSE if the short line should not be shown
+@mixin heading--highlight($line: true) {
+  @include heading-default();
+  @include font-size(22px);
+  font-style: inherit;
+  color: $brand--primary;
+  text-align: center;
+
+  @if ($line) {
+    &:after {
+      display: block;
+      margin: $spacer auto;
+      width: 15%;
+      height: 2px;
+      background-color: $brand--primary;
+      content: "";
+    }
+  }
+  @else {
+    &:after {
+      display: none;
+    }
+  }
+}
+
+/// Weighted Heading
+/// @param {boolean} $invert [false] - Set to TRUE if the first word should be bold
+@mixin heading--weighted($invert: false) {
+  @include heading--primary();
+
+  @if ($invert) {
+    font-weight: $font-weight--bold;
+  }
+  @else {
+    font-weight: $font-weight--light;
+  }
+
+  &--weighted {
+    @if ($invert) {
+      font-weight: $font-weight--light;
+    }
+    @else {
+      font-weight: $font-weight--bold;
+    }
+  }
+}
+
+/// Underline Heading
+@mixin heading--underline() {
+  @include heading--primary();
+  font-weight: $font-weight--light;
+
+  &:after {
+    display: block;
+    border-top: 3px solid $brand--secondary;
+    margin: $spacer--small 0 $spacer;
+    width: $spacer * 1.25;
+    content: "";
+  }
+}
+
+/// Weighted Underline Heading
+@mixin heading--weighted-underline() {
+  @include heading--underline();
+  @include heading--weighted();
+}
+
+/// Footer Audience Headers
+@mixin heading--invert() {
+  @include heading--primary();
+  color: $white;
+}
+
+/// Heading for Inverted Box elements
+@mixin heading--invert-box() {
+  @include heading--invert();
+  margin: 0;
+  padding: $spacer $fixed-spacer;
+  background: $brand--primary;
+
+  @include breakpoint($bp-medium--up) {
+    padding: $fixed-spacer;
+  }
+}
+
+/// Image Overlay: This heading will appear on top of an image
+/// @param {string} $align [left] - the direction the text will flow from
+@mixin heading--overlay($align: left) {
+  @include heading-default();
+  @include font-size(20px);
+  position: absolute;
+  bottom: $spacer * 2;
+  z-index: $zindex-component-fg;
+  padding: $spacer * .6 $spacer;
+  width: 70%;
+  color: $white;
+  text-align: right;
+
+  @if ($align == right) {
+    right: 0;
+    text-align: left;
+  }
+
+  @include breakpoint($bp-small--up) {
+    @include font-size(25px);
+    line-height: 1.3;
+  }
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &--right {
+    right: 0;
+    text-align: left;
+  }
+}

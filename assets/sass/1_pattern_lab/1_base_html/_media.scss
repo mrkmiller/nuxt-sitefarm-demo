@@ -1,0 +1,57 @@
+// Media Elements (image, video, etc)
+
+// Flexible images and media
+embed,
+img,
+object,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  margin-bottom: $spacer;
+  max-width: 100%;
+}
+
+// http://stackoverflow.com/questions/10264463/can-a-figcaption-be-restricted-to-the-width-of-a-responsively-sized-image
+// display: block is for IE11 and is overridden below in the @supports
+figure {
+  margin: 0 0 $spacer;
+
+  // Force an immediate child so that it doesn't break stuff in ckeditor
+  > img {
+    margin-bottom: $spacer--small;
+  }
+}
+
+// display: block is for IE11 and is overridden below in the @supports
+figcaption {
+  @include font-size(12px, 18px);
+  caption-side: bottom;
+  color: darken($gray-light, 10%);
+  font-style: italic;
+}
+
+// Provide the proper responsive solution for browsers other than IE11
+@supports ((display: table) and (display: table-caption)) {
+  figure {
+    display: table;
+  }
+
+  figcaption {
+    display: table-caption;
+  }
+}
+
+// Remove the gap between audio, canvas, iframes,
+// images, videos and the bottom of their containers:
+// https://github.com/h5bp/html5-boilerplate/issues/440
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}

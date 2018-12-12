@@ -1,0 +1,108 @@
+////
+/// Text
+/// @group Text
+////
+
+// Font Families
+.font--secondary {
+  font-family: $font-family--serif;
+}
+
+.font--monospace {
+  font-family: $font-family--monospace;
+}
+
+// Caption
+.caption {
+  font-style: italic;
+}
+
+.hr-invert {
+  border-color: rgba($white, .25);
+}
+
+.byline {
+  color: $gray;
+}
+
+/// Pullquote
+%pullquote {
+  border-left: 0;
+  margin-bottom: $spacer;
+  padding: $spacer;
+  background: $brand--primary-20;
+  font-size: $font-size;
+
+  p {
+    color: $brand--primary;
+    font-style: italic;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    font-style: normal;
+  }
+}
+
+.pullquote {
+  @extend %pullquote;
+}
+
+// Metadata
+.meta-info {
+  @include font-size(18px);
+
+  &--pipe-seperated {
+
+    & .meta-info__data {
+      border-right: 1px solid $brand--primary;
+      padding-right: $spacer--small;
+      margin-right: $spacer--small /2;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}
+
+// Text Modifiers
+.text--smaller {
+  @include font-size(15px);
+}
+
+// Text Indents
+.indent {
+  margin-left: .75em;
+
+  &--large {
+    margin-left: 1.5em;
+  }
+
+  &--giant {
+    margin-left: 2.25em;
+  }
+
+  &--huge {
+    margin-left: 3em;
+  }
+
+  @include breakpoint($bp-medium--up, true) {
+    margin-left: 2em;
+
+    &--large {
+      margin-left: 4em;
+    }
+
+    &--giant {
+      margin-left: 6em;
+    }
+
+    &--huge {
+      margin-left: 8em;
+    }
+  }
+}

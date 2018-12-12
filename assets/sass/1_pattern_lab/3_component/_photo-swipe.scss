@@ -1,0 +1,22 @@
+.pswp {
+  &--open {
+    z-index: $zindex-modal;
+  }
+
+  &--svg &__button,
+  &--svg &__button--arrow--left:before,
+  &--svg &__button--arrow--right:before {
+    background-image: url("../images/default-skin.svg");
+  }
+
+  &__preloader--active &__preloader__icn {
+    // We use .gif in browsers that don't support CSS animation
+    background: url("../images/preloader.gif") 0 0 no-repeat;
+  }
+
+  &--svg &__button--arrow--left,
+  &--svg &__button--arrow--right {
+    background: none;
+  }
+
+}

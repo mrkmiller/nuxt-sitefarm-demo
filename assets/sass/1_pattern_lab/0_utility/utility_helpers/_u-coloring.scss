@@ -1,0 +1,22 @@
+// Color states
+.u-error {
+  color: $brand--danger !important;
+}
+
+.u-warning {
+  color: $brand--warning !important;
+}
+
+.u-info {
+  color: $brand--info !important;
+}
+
+// Force a transparent background
+.u-bg--transparent {
+  background-color: transparent !important;
+}
+
+// Force the background to be Opaque
+.u-bg--opaque {
+  background-color: $white !important;
+}

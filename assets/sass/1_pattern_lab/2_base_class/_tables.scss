@@ -1,0 +1,158 @@
+////
+/// Tables
+/// @group Tables
+////
+
+/// Table: Bordered `Modifier`
+///
+/// Add borders all around the table and between all the columns.
+%table--bordered {
+  border: 1px solid $table-border-color;
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid $table-border-color;
+      }
+    }
+  }
+
+  // Regular cells without parent wrappers
+  > tr > td {
+    border: 1px solid $table-border-color;
+  }
+
+  // Heading
+  > thead > tr,
+  > tr {
+    > th {
+      border-bottom: 2px solid $brand--secondary;
+    }
+  }
+
+}
+
+
+/// Table: Zebra-striping `Modifier`
+///
+/// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+%table--striped {
+  > tbody > tr:nth-of-type(odd),
+  > tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+/// Table: Hover effect `Modifier`
+///
+%table--hover {
+  > tbody > tr:hover,
+  > tbody > tr:hover:nth-of-type(odd),
+  > tr:hover,
+  > tr:hover:nth-of-type(odd) {
+    background-color: $table-bg-hover;
+  }
+}
+
+/// Table: Admin Table `Modifier`
+%table--admin {
+  background-color: $white;
+  border: 1px solid $brand--primary-90;
+  border-collapse: inherit;
+
+  mark {
+    @include font-size(11px);
+    background-color: $mu-brick;
+    border-radius: $spacer--small;
+    color: $white;
+    padding: $spacer--tiny $spacer--small;
+    text-transform: capitalize;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  > thead {
+    background-color: $brand--primary-90;
+    color: $white;
+
+    a {
+      color: $white;
+    }
+
+    > tr > th {
+      border-bottom-width: 0;
+    }
+
+    img {
+      margin-left: $spacer--small;
+    }
+
+    .active {
+      border-left: 1px solid $brand--primary-60;
+      border-right: 1px solid $brand--primary-60;
+      background-color: lighten($sage-green, 25);
+
+      .active {
+        color: $brand--primary;
+      }
+    }
+  }
+
+  > tbody > tr {
+
+    &.drag-previous,
+    &.drag-previous:nth-of-type(odd) {
+      background-color: $brand--secondary-10;
+    }
+
+    &.drag,
+    &.drag:nth-of-type(odd) {
+      background-color: $brand--secondary-20;
+    }
+  }
+
+  > tbody > tr:nth-of-type(odd),
+  > tr:nth-of-type(odd) {
+    background-color: $brand--primary-10;
+  }
+
+  > tfoot {
+    background-color: $brand--primary-60;
+
+    > tr > th {
+      border-top-width: 0;
+      color: $gray-lighter;
+      font-weight: normal;
+    }
+  }
+
+  .active {
+    background-color: lighten($sage-green, 30);
+    border-left: 1px solid $brand--primary-40;
+    border-right: 1px solid $brand--primary-40;
+  }
+}
+
+
+// Assign placeholders to classes
+.table--bordered {
+  @extend %table--bordered;
+}
+
+.table--striped {
+  @extend %table--striped;
+}
+
+// Placed here since it has to come after the potential zebra striping
+.table--hover {
+  @extend %table--hover;
+}
+
+.table--admin {
+  @extend %table--admin;
+}

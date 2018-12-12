@@ -1,0 +1,77 @@
+// Collapse (Like accordion but only affects the current section)
+.collapse {
+
+  &__title {
+    @include font-size($font-size--large);
+    position: relative;
+    color: $white;
+    background-color: $brand--primary;
+    margin-top: 0;
+    padding: $fixed-spacer * 1.5 $fixed-spacer--huge $fixed-spacer * 1.5 $fixed-spacer;
+    cursor: pointer;
+    margin-bottom: 0;
+
+    @include breakpoint($bp-small--up) {
+      @include font-size(25px, 36px);
+    }
+
+    &:after {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      height: 30px;
+      width: 30px;
+      content: "";
+      background: url(../images/plus.svg) no-repeat 0 0;
+      background-size: cover;
+      transform: translateY(-50%) rotate(0deg);
+      transition: all .4s ease-in;
+
+      @include breakpoint($bp-small--down) {
+        transform: scale(.75, .75) translateY(-90%) rotate(0deg);
+      }
+    }
+
+    &--open:after {
+      transform: translateY(-50%) rotate(135deg);
+      transform-origin: 50% 50%;
+
+      @include breakpoint($bp-small--down) {
+        transform: scale(.75, .75) translateY(-90%) rotate(135deg);
+      }
+    }
+  }
+
+  // Hiding of this content will be done in markup with a .u-hidden--visually
+  // class so that it can be removed by javascript. This is done for accessibility
+  // reasons so that the content is not actually hidden.
+  &__content {
+    background-color: $gray-lighter;
+    padding: $fixed-spacer;
+
+    li {
+      margin-bottom: $spacer / 2;
+
+      a {
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+//@each $brand-color in $category-brands--dark-on-light adds dark text for better
+//visual contrast accessibility on collapse components
+@each $brand-color in $category-brands--dark-on-light {
+
+  .category-brand--#{$brand-color} {
+    .collapse__title {
+      color: $black;
+
+      &:after {
+        background: url(../images/plus-black.svg) no-repeat 0 0;
+        background-size: cover;
+      }
+    }
+  }
+}

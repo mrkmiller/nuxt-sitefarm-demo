@@ -1,0 +1,28 @@
+// Footer Spacer
+.footer-spacer {
+  position: relative;
+  margin: $spacer--huge 0;
+  text-align: center;
+
+  &__hr {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    margin: 0;
+    width: 100%;
+  }
+
+  &__logo {
+    display: inline-block;
+    position: relative;
+    padding: 0 $spacer--large;
+    z-index: 2;
+    background-color: $brand--primary;
+
+    .ucd-logo {
+      @include breakpoint($bp-narrow--up) {
+        width: 250px;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+// Footer
+.footer {
+  margin-top: $spacer--large;
+  padding: $spacer--huge 0 6em;
+  background-color: $brand--primary;
+  color: $white;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .pane-title {
+    @include heading--invert();
+    margin-bottom: $spacer--small;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+// Region of Navigation lists
+.flex-footer {
+  @extend %o-flex-region;
+
+  &__item {
+    @extend %o-flex-region__item;
+    margin-bottom: $spacer--large;
+    padding-right: $spacer;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}

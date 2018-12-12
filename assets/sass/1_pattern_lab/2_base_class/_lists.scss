@@ -1,0 +1,365 @@
+////
+/// List Styles
+/// @group Lists
+////
+
+// List styles
+$list-faq-prefix-spacing: $spacer * 1.5;
+$list-bordered-vertical-spacing: $spacer--small;
+
+/// List: Flush `Modifier`
+///
+/// Make list flush to the left side
+%list--flush {
+  @include list-flush();
+  // add padding so that bullet points still show up inline
+  padding-left: $spacer + ($spacer * .25);
+}
+
+/// List: Arrows `Modifier`
+///
+/// Bullets become an arrow
+%list--arrow {
+  li {
+    list-style: none;
+
+    &:before {
+      position: absolute;
+      margin: 1px .5em 0 -.75em;
+      color: $brand--secondary-90;
+      content: "\203A";
+      font-family: Georgia;
+      font-size: 1.25em;
+      font-weight: normal;
+      line-height: 1;
+    }
+  }
+}
+
+/// List: White Arrows `Modifier`
+///
+/// Bullets become white arrows
+%list--white-arrow {
+  @extend %list--arrow;
+
+  li:before {
+    color: $white;
+  }
+}
+
+/// List: Bordered `Modifier`
+///
+/// adds a blocked chevron for the bullet and puts a border between items
+%list--bordered {
+  @include list-flush();
+  list-style: none;
+
+  ul {
+    border-top: 1px dotted $brand--primary-50;
+    margin-top: $list-bordered-vertical-spacing;
+
+    li:first-child {
+      padding-top: $list-bordered-vertical-spacing;
+    }
+  }
+
+  li,
+  > div {
+    border-bottom: 1px dotted $brand--primary-50;
+    margin-bottom: $list-bordered-vertical-spacing;
+    padding: 0 0 $list-bordered-vertical-spacing $spacer--large;
+    background: url("../images/chevron-invert.svg") no-repeat 0 .15em;
+
+    &:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    li {
+      padding-left: 0;
+      background: none;
+    }
+  }
+}
+
+/// List: FAQ `Modifier`
+///
+/// Turns a list into an FAQ where odd items are the Question and
+/// even items are the answer. These will be toggleable as well.
+%list--faq {
+  @include reset-list();
+  margin-left: $spacer;
+
+  > li {
+    padding: 0 $spacer--small $spacer--small $list-faq-prefix-spacing;
+
+    &:nth-child(odd) {
+      @include link-style-secondary();
+      padding-top: $spacer--small;
+      cursor: pointer;
+      font-family: $font-family--headings;
+
+      &:not(:first-child) {
+        border-top: 1px dotted $brand--primary-50;
+      }
+
+      &:before {
+        display: inline-block;
+        margin-left: -$list-faq-prefix-spacing;
+        width: $list-faq-prefix-spacing;
+        color: $brand--primary-80;
+        content: "Q:";
+        font-family: $font-family--serif;
+      }
+
+      > p {
+        margin: 0;
+      }
+    }
+
+    &:nth-child(even) {
+      display: none;
+      margin-bottom: $spacer--small;
+
+      &:before {
+        float: left;
+        display: inline-block;
+        margin-left: -$list-faq-prefix-spacing;
+        width: $list-faq-prefix-spacing;
+        color: $brand--primary-80;
+        content: "A:";
+        font-family: $font-family--serif;
+      }
+    }
+  }
+}
+
+/// List: Pipe `Modifier`
+///
+/// Places each item in a horizontal list separated by a vertical pipe
+%list--pipe {
+  @include reset-list();
+
+  li {
+    border-right: 1px solid $gray-light;
+    margin-right: $spacer--tiny;
+    padding-right: $spacer--small;
+    display: inline-block;
+    line-height: 1;
+
+    &:last-child {
+      border-right: 0;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+/// List: Comment `Modifier`
+///
+/// Formats a user comment
+%list--comment {
+  @extend %list--bordered;
+
+  margin: 0;
+  padding: 0 0 $spacer--large;
+}
+
+/// List: Simple `Modifier`
+///
+/// Removes bullets and initial left margin
+%list--simple {
+  @include reset-list();
+
+  li {
+    @include reset-list-titles();
+    margin-bottom: $spacer;
+
+    ul {
+      margin-top: $spacer;
+    }
+  }
+
+  a {
+    font-weight: $font-weight;
+  }
+}
+
+/// List: Filter `Modifier`
+///
+/// Slightly indents list of facets
+%list--filter {
+  @include reset-list();
+
+  li {
+    padding: $spacer--tiny 0 $spacer--tiny $spacer--small;
+  }
+}
+
+// Download List
+.list--download {
+  @include reset-list();
+
+  a {
+    @include link-style-secondary();
+  }
+}
+
+// Multi-level Ordered List
+%list--multilevel {
+  list-style-type: decimal;
+
+  ol {
+    list-style-type: lower-alpha;
+
+    ol {
+      list-style-type: lower-roman;
+    }
+  }
+}
+
+// Outline Ordered List
+%list--outline {
+  list-style-type: upper-roman;
+
+  ol {
+    list-style-type: upper-alpha;
+
+    ol {
+      list-style-type: decimal;
+
+      ol {
+        list-style-type: lower-latin;
+
+        ol {
+          list-style-type: lower-roman;
+        }
+      }
+    }
+  }
+}
+
+/// List: Accordion `Modifier`
+///
+/// Turns a list into a standard accordion drop down.
+%list--accordion {
+  @include reset-list();
+  margin-bottom: $spacer;
+
+  > li {
+    padding: 0 $spacer--small $spacer--small $list-faq-prefix-spacing;
+
+    &:nth-child(odd) {
+      @extend %btn--primary;
+      display: block;
+      border: 0;
+      border-bottom: 1px solid $ucd-blue-50;
+      padding: $spacer--small $spacer;
+      background-color: $ucd-blue;
+      cursor: pointer;
+      text-align: left;
+      white-space: normal;
+
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 5px;
+        height: 9px;
+        background: url("../images/chevron-white.svg") no-repeat;
+        margin-right: $spacer--small;
+      }
+
+      &.active:before {
+        transform: rotate(90deg);
+      }
+
+      > p {
+        margin: 0;
+      }
+    }
+
+    &:nth-child(even) {
+      border-left: 1px solid $gray-light;
+      border-right: 1px solid $gray-light;
+      padding: $spacer--small $spacer;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $gray-light;
+    }
+  }
+}
+
+// Assign placeholders to classes
+.list--flush {
+  @extend %list--flush;
+}
+
+.list--arrow {
+  @extend %list--arrow;
+}
+
+.list--white-arrow {
+  @extend %list--white-arrow;
+}
+
+.list--bordered {
+  @extend %list--bordered;
+}
+
+.list--faq {
+  @extend %list--faq;
+}
+
+.list--pipe {
+  @extend %list--pipe;
+}
+
+.list--comment {
+  @extend %list--comment;
+}
+
+.list--simple {
+  @extend %list--simple;
+}
+
+.list--filter {
+  @extend %list--filter;
+}
+
+.list--multilevel {
+  @extend %list--multilevel;
+}
+
+.list--outline {
+  @extend %list--outline;
+}
+
+.list--reset {
+  @include reset-list();
+}
+
+.list--accordion {
+  @extend %list--accordion;
+}
+
+// List Wrappers
+
+// List Wrappers so that any lists further down the DOM will inherit the style
+// even if they don't have the class applied directly to their list.
+$list-wrapper-parents: (
+  "flush",
+  "arrow",
+  "white-arrow",
+  "bordered",
+  "faq",
+  "pipe",
+  "simple"
+);
+
+@each $item in $list-wrapper-parents {
+  .list-wrapper--#{$item} ul {
+    @extend %list--#{$item};
+  }
+}

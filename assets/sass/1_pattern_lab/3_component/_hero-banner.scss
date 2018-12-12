@@ -1,0 +1,175 @@
+// Hero Banner
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+
+  &__image {
+    @include breakpoint($bp-small--down) {
+      margin-left: -50%;
+      width: 200%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__video-popup {
+    position: relative;
+    height: 0;
+    margin: 0;
+    padding-bottom: 56.25%; // 16:9
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }
+
+  &__body {
+    position: absolute;
+    bottom: 5%;
+    padding: 0 8%;
+    width: 100%;
+    color: $white;
+    text-shadow: $black 0 0 2px;
+
+    @include breakpoint($bp-small--up) {
+      @include font-size(20px);
+    }
+
+    @include breakpoint($bp-narrow--up) {
+      @include font-size(30px);
+    }
+
+    @include breakpoint($bp-medium--up, true) {
+      @include font-size(40px);
+    }
+
+    @include breakpoint($bp-wide--up) {
+      @include font-size(50px);
+    }
+  }
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: $font-weight--bold;
+    line-height: 1;
+  }
+
+  &__summary {
+    font-size: 0.875em;
+    font-weight: $font-weight--light;
+    line-height: 1;
+  }
+
+  &__button-group {
+    margin-top: $spacer--tiny;
+
+    @include breakpoint($bp-narrow--up) {
+      margin-top: $spacer--small;
+    }
+  }
+
+  &__button {
+    @extend %btn--invert;
+    margin-right: $spacer--small;
+    margin-bottom: $spacer--small;
+    font-size: 0.75em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  // ==========================================================================
+  // Alignment Option
+  // ==========================================================================
+
+  // Center
+  &--align-center &__body {
+    text-align: center;
+  }
+
+  // Right
+  &--align-right &__body {
+    text-align: right;
+  }
+
+  // ==========================================================================
+  // Branding Options
+  // ==========================================================================
+  &--brand-primary &__title {
+    color: $brand--primary;
+    text-shadow: none;
+  }
+
+  &--brand-secondary &__title {
+    color: $brand--secondary;
+    text-shadow: none;
+  }
+
+  // ==========================================================================
+  // Content Visibility Option
+  // ==========================================================================
+  &--image-only {
+    .hero-banner__body {
+      display: none;
+    }
+
+    .hero-banner__image {
+      @include breakpoint($bp-small--down) {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // Image filtering
+  // ==========================================================================
+
+  // Darken the image so white text in the body will show clearer
+  &--darken &__image {
+    filter: brightness(75%);
+  }
+
+  // Color image and fade to different rainbow colors
+  &--rainbow &__image {
+    animation: rainbow-rotate-animation 30s infinite;
+  }
+
+  @keyframes rainbow-rotate-animation {
+    0% {
+      filter: sepia(1) hue-rotate(0deg);
+    }
+
+    100% {
+      filter: sepia(1) hue-rotate(360deg);
+    }
+  }
+
+  // Sepia fade to normal color
+  &--sepia-fade &__image {
+    animation: sepia-fade-animation 10s;
+  }
+
+  @keyframes sepia-fade-animation {
+    0% {
+      filter: sepia(1);
+    }
+
+    20% {
+      filter: sepia(1);
+    }
+
+    100% {
+      filter: sepia(0);
+    }
+  }
+
+}

@@ -1,0 +1,50 @@
+////
+/// The flex region object makes a section easy to drop multiple items in and
+/// recieve a sensible layout
+/// @group Objects
+////
+
+/// Flex Region Object: Default Spacing unit
+$o-flex-region-spacer:    1em !default;
+
+/// Flex Region Object: Allow content in this region to arrange itself into sensible columns
+///
+/// @example markup
+/// <div class="o-flex-region">
+///   <div class="o-flex-region__item">content</div>
+///   <div class="o-flex-region__item">content</div>
+///   <div class="o-flex-region__item">content</div>
+/// </div>
+%o-flex-region {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include breakpoint($bp-medium--up) {
+    flex-wrap: nowrap;
+  }
+}
+
+%o-flex-region__item {
+  flex-grow: 1;
+  margin-bottom: $o-flex-region-spacer;
+  width: 100%;
+
+  @include breakpoint($bp-narrow--up) {
+    width: 50%;
+  }
+
+  @include breakpoint($bp-medium--up) {
+    width: auto;
+    flex-grow: 0;
+    min-width: 20%;
+  }
+}
+
+.o-flex-region {
+  @extend %o-flex-region;
+}
+
+.o-flex-region__item {
+  @extend %o-flex-region__item;
+}

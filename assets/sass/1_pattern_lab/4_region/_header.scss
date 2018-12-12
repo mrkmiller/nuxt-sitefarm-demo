@@ -1,0 +1,128 @@
+// Header
+.header {
+
+  &__bar {
+    height: $header-bar-height;
+    background: $brand--primary url("../images/header-bar.svg") center top/cover no-repeat;
+
+    &--no-image {
+      background-image: none;
+    }
+  }
+
+  &__branding {
+    padding: $spacer 0;
+    background-color: $white;
+
+    @include breakpoint($bp-medium--up, true) {
+      border-bottom: 2px dotted $brand--gray;
+    }
+
+    .o-media {
+      align-items: center;
+    }
+  }
+
+  &__fixed-site-name {
+    @include font-size(18px, 1);
+    @include hide-visually();
+    padding-right: $spacer;
+    color: $white;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    visibility: hidden;
+
+    .is-fixed & {
+      @include show-visually();
+      @include vertical-center();
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @include breakpoint($bp-narrow--up) {
+      @include font-size(20px, 1);
+      font-weight: $font-weight--bold;
+    }
+
+    @include breakpoint($bp-medium--up, true) {
+      @include font-size(24px);
+      padding-left: $container-space--md;
+    }
+
+    @include breakpoint($bp-wide--up) {
+      padding-left: $container-space--lg;
+    }
+
+    @include breakpoint($bp-huge) {
+      padding-left: $container-space--xlg;
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__site-name {
+    line-height: 1;
+
+    @include breakpoint($bp-narrow--down) {
+      @include font-size(28px, 1);
+    }
+
+    @include breakpoint($bp-small--down) {
+      @include font-size(24px, 1);
+    }
+  }
+
+  &__slogan {
+    @include font-size(25px, 1);
+    color: $brand--primary-70;
+
+    @include breakpoint($bp-narrow--down) {
+      @include font-size(22px, 1);
+    }
+
+    @include breakpoint($bp-small--down) {
+      @include font-size(18px, 1);
+    }
+  }
+
+  .ucd-logo {
+    float: right;
+    padding-top: ceil(($header-bar-height - 20px) / 2);
+
+    @include breakpoint($bp-medium--up, true) {
+      float: none;
+
+      &--right {
+        float: right;
+      }
+    }
+
+    .is-fixed & {
+      display: none;
+    }
+  }
+
+}
+
+.site-logo {
+  max-height: 100px;
+}
+
+// Navbar
+.navbar {
+  background-color: $menu-background-color;
+  box-shadow: 0 2px 1px rgba($brand--primary, .15);
+
+  .primary-nav {
+    @include breakpoint($bp-medium--up, true) {
+      margin-right: 55px;
+    }
+  }
+}

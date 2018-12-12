@@ -1,0 +1,22 @@
+//------------------------------------
+//  $RESET
+//------------------------------------
+
+// https://github.com/at-import/toolkit#kickstart
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+// Add Proxima Nova fonts
+@include font-face(Proxima-Nova, "https://campusfont.ucdavis.edu/proxima-nova/proximanova_regular_macroman/proximanova-regular-webfont", 400, normal);
+@include font-face(Proxima-Nova, "https://campusfont.ucdavis.edu/proxima-nova/proximanova_bold_macroman/proximanova-bold-webfont", 700, normal);
+@include font-face(Proxima-Nova, "https://campusfont.ucdavis.edu/proxima-nova/proximanova_italic_macroman/proximanova-regularit-webfont", 400, italic);
+@include font-face(Proxima-Nova, "https://campusfont.ucdavis.edu/proxima-nova/proximanova_bolditalic_macroman/proximanova-boldit-webfont", 700, italic);
+@include font-face(proxima-nova, "https://campusfont.ucdavis.edu/proxima-nova/proximanova_light_macroman/proximanova-light-webfont", 200, normal);
+@include font-face(proxima-nova, "https://campusfont.ucdavis.edu/proxima-nova/proximanova_lightitalic_macroman/proximanova-lightit-webfont", 200, italic);

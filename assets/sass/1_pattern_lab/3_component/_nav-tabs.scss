@@ -1,0 +1,34 @@
+// navigation tabs
+.tabs {
+  @include reset-list();
+  margin-bottom: $spacer;
+
+  li {
+    display: inline-block;
+    margin-top: $spacer--tiny;
+  }
+
+  a {
+    @extend %btn--alt;
+    margin-right: $spacer--tiny;
+    background-color: $brand--primary-20;
+    transition: background-color .2s ease-in-out;
+
+    &.active {
+      background-color: $brand--primary-80;
+      color: $white;
+
+      &:hover {
+        background-color: $brand--primary;
+      }
+    }
+  }
+
+  &--primary a {
+    padding: $spacer * .9 $spacer;
+  }
+
+  &--secondary a {
+    @include font-size(13px);
+  }
+}

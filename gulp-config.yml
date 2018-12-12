@@ -1,0 +1,54 @@
+# Config options can be found at https://github.com/ucdavis/ucd-theme-tasks/blob/master/docs/config.md
+# This config may be overridden by creating a gulp-config--custom.yml file
+css:
+  enabled: true
+  src:
+    - assets/sass/**/*.scss
+    - '!assets/sass/1_pattern_lab/**/*'
+  vendor:
+    - assets/sass/vendor/**/*.css
+    - '!node_modules/superfish/dist/css/megafish.css'
+    - '!node_modules/superfish/dist/css/superfish-navbar.css'
+    - '!node_modules/superfish/dist/css/superfish-vertical.css'
+  dest: dist/
+  lint:
+    enabled: true
+    extraSrc:
+      - '!assets/sass/1_pattern_lab/**/*'
+  sassdoc:
+    enabled: false
+
+js:
+  enabled: true
+  src:
+    - assets/js/1_pattern_lab/**/*.js
+    - assets/js/**/*.js
+    # Ignore vendor files
+    - '!assets/js/vendor/**/*.js'
+    # Drupal will add modernizr as a library
+    - '!assets/js/1_pattern_lab/vendor/modernizr-custom.js'
+    - '!assets/js/vendor/modernizr-custom.js'
+    # Ignore patternlab components which need to be redone as Drupal behaviors or added via a module
+    - '!assets/js/1_pattern_lab/slideshow.js'
+    - '!assets/js/1_pattern_lab/photoswipe.js'
+  dest: dist/
+  destName: scripts.js
+  eslint:
+    enabled: false
+    extraSrc:
+      - '!assets/js/vendor/**/*.js'
+      - '!assets/js/1_pattern_lab/**/*.js'
+
+nodeFiles:
+  enabled: true
+
+browserSync:
+  enabled: false
+
+# This is the destination of the CMS theme these source files will be ported to
+themeSync:
+  enabled: false
+  src: ../patternlab/ # This should be overridden per custom install
+  sassDest: 'assets/sass/1_pattern_lab/'
+  jsDest: 'assets/js/1_pattern_lab/'
+  imagesDest: 'assets/images/'

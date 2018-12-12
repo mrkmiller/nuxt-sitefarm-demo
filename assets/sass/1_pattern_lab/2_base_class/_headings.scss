@@ -1,0 +1,111 @@
+// Headings
+
+$page-title-triangle-size: 40px;
+
+// Page title
+.page-title {
+  position: relative;
+  margin-top: $spacer--large;
+  margin-bottom: $spacer--large;
+  overflow: hidden;
+
+  &--banner {
+    margin-top: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    position: relative;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: $spacer--small $spacer $spacer--small $container-space;
+    background-color: $brand--primary-80;
+    color: $white;
+
+    @include breakpoint($bp-medium--down) {
+      @include font-size(20px);
+    }
+
+    @include breakpoint($bp-medium--up, true) {
+      margin-right: $container-space--md;
+      padding-left: $container-space--md;
+    }
+    @include breakpoint($bp-wide--up) {
+      margin-right: $container-space--lg;
+      padding-left: $container-space--lg;
+    }
+    @include breakpoint($bp-huge) {
+      margin-right: $container-space--xlg;
+      padding-left: $container-space--xlg;
+    }
+
+    &:after {
+      @include triangle($brand--primary-80, 150px, $page-title-triangle-size, 225);
+      @include force-anti-alias();
+      position: absolute;
+      right: -($page-title-triangle-size - 1px);
+      bottom: 0;
+      height: 150px;
+      width: $page-title-triangle-size;
+      content: "";
+    }
+
+    &--nested {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      margin-bottom: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+
+  &__bg {
+    width: 100%;
+  }
+}
+
+// Standard Heading
+.heading {
+  @include heading-default();
+}
+
+.heading--primary {
+  @include heading--primary();
+}
+
+.heading--secondary {
+  @include heading--secondary();
+}
+
+.heading--highlight {
+  @include heading--highlight();
+}
+
+.heading--auxiliary {
+  @include heading--auxiliary();
+}
+
+.heading--weighted {
+  @include heading--weighted();
+}
+
+.heading--underline {
+  @include heading--underline();
+}
+
+.heading--weighted-underline {
+  @include heading--weighted-underline();
+}
+
+.heading--invert {
+  @include heading--invert();
+}
+
+.heading--invert-box {
+  @include heading--invert-box();
+}

@@ -1,0 +1,16 @@
+// Media List (view mode)
+.vm-listing {
+  margin-bottom: $spacer;
+  color: $gray-light;
+
+  &__title {
+    @include reset-list-titles();
+    line-height: 1.2;
+  }
+
+  // Set a width for the images
+  .o-media__figure {
+    max-width: 25%;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,228 @@
+////
+/// Media Object
+/// Adapted from Inuit CSS
+/// @group Objects
+////
+
+/// Media Object: Default Spacing unit
+$o-media-gutter:          1em !default;
+/// Media Object: Tiny Spacing unit
+$o-media-gutter--tiny:    round($o-media-gutter / 4) !default;
+/// Media Object: Small Spacing unit
+$o-media-gutter--small:   round($o-media-gutter / 2) !default;
+/// Media Object: Large Spacing unit
+$o-media-gutter--large:   round($o-media-gutter * 2) !default;
+/// Media Object: Huge Spacing unit
+$o-media-gutter--huge:    round($o-media-gutter * 4) !default;
+
+// Enable or disable object classes
+
+/// Media Object: Enable the `rev` modifier class
+$o-media-enable--rev:     false !default;
+/// Media Object: Enable the `flush` modifier class
+$o-media-enable--flush:   false !default;
+/// Media Object: Enable the `tiny` modifier class
+$o-media-enable--tiny:    false !default;
+/// Media Object: Enable the `small` modifier class
+$o-media-enable--small:   false !default;
+/// Media Object: Enable the `large` modifier class
+$o-media-enable--large:   false !default;
+/// Media Object: Enable the `huge` modifier class
+$o-media-enable--huge:    false !default;
+
+
+/// Media Object: The media object is an image to the left, with descriptive
+/// content to the right. This is using flexbox with a legacy fallback to floats.
+///
+/// Adapted from [Inuit CSS](https://github.com/inuitcss)
+/// @link https://github.com/inuitcss/objects.media/blob/master/_objects.media.scss
+/// @example markup
+/// <div class="o-media">
+///   <div class="o-media__figure">
+///     <img src="http://placehold.it/135x135" />
+///   </div>
+///   <div class="o-media__body">
+///     <h2>Title to the content</h2>
+///     <p>content</p>
+///   </div>
+/// </div>
+%o-media {
+  display: flex;
+  align-items: flex-start;
+
+  .no-flexbox & {
+    @include clearfix();
+    display: block;
+  }
+}
+
+/// Media Object: Figure (image) `Element`
+%o-media__figure {
+  margin-right: $o-media-gutter;
+
+  .no-flexbox & {
+    float: left;
+  }
+}
+
+/// Media Object: Body (content) `Element`
+%o-media__body {
+  display: block;
+  flex: 1;
+  -ms-flex-basis: auto; // required by ie11
+
+  .no-flexbox & {
+    overflow: hidden;
+  }
+
+  &,
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/// Media Object: Reverse `Modifier`
+///
+/// Flips the Figure to the opposite (right) side
+%o-media--rev {
+  flex-direction: row-reverse;
+
+  > %o-media__figure {
+    margin-right: 0;
+    margin-left: $o-media-gutter;
+
+    .no-flexbox & {
+      float: right;
+    }
+  }
+}
+
+/// Media Object: Flush `Modifier`
+///
+/// No space between the figure and body
+%o-media--flush {
+
+  > %o-media__figure {
+    margin-right: 0;
+    margin-left:  0;
+  }
+
+}
+
+/// Media Object: Tiny `Modifier`
+///
+/// Greatly shortens space between the figure and body
+%o-media--tiny {
+
+  > %o-media__figure {
+    margin-right: $o-media-gutter--tiny;
+  }
+
+  &%o-media--rev {
+    > %o-media__figure {
+      margin-right: 0;
+      margin-left: $o-media-gutter--tiny;
+    }
+  }
+}
+
+/// Media Object: Small `Modifier`
+///
+/// Shortens space between the figure and body
+%o-media--small {
+
+  > %o-media__figure {
+    margin-right: $o-media-gutter--small;
+  }
+
+  &%o-media--rev {
+    > %o-media__figure {
+      margin-right: 0;
+      margin-left: $o-media-gutter--small;
+    }
+  }
+}
+
+/// Media Object: Large `Modifier`
+///
+/// Adds more space between the figure and body
+%o-media--large {
+
+  > %o-media__figure {
+    margin-right: $o-media-gutter--large;
+  }
+
+  &%o-media--rev {
+    > %o-media__figure {
+      margin-right: 0;
+      margin-left: $o-media-gutter--large;
+    }
+  }
+}
+
+/// Media Object: Huge `Modifier`
+///
+/// Greatly adds more space between the figure and body
+%o-media--huge {
+
+  > %o-media__figure {
+    margin-right: $o-media-gutter--huge;
+  }
+
+  &%o-media--rev {
+    > %o-media__figure {
+      margin-right: 0;
+      margin-left: $o-media-gutter--huge;
+    }
+  }
+}
+
+
+// Assign placeholders to classes
+.o-media {
+  @extend %o-media;
+}
+
+.o-media__figure {
+  @extend %o-media__figure;
+}
+
+.o-media__body {
+  @extend %o-media__body;
+}
+
+@if ($o-media-enable--rev == true) {
+  .o-media--rev {
+    @extend %o-media--rev;
+  }
+}
+
+@if ($o-media-enable--flush == true) {
+  .o-media--flush {
+    @extend %o-media--flush;
+  }
+}
+
+@if ($o-media-enable--tiny == true) {
+  .o-media--tiny {
+    @extend %o-media--tiny;
+  }
+}
+
+@if ($o-media-enable--small == true) {
+  .o-media--small {
+    @extend %o-media--small;
+  }
+}
+
+@if ($o-media-enable--large == true) {
+  .o-media--large {
+    @extend %o-media--large;
+  }
+}
+
+@if ($o-media-enable--huge == true) {
+  .o-media--huge {
+    @extend %o-media--huge;
+  }
+}

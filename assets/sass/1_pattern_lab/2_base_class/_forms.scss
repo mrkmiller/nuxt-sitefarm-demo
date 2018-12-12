@@ -1,0 +1,31 @@
+// Form Field Container
+.field-container {
+  margin-bottom: $spacer;
+}
+
+.form-submit {
+  margin-right: $spacer--small;
+  width: auto;
+
+  @include breakpoint($bp-small--down) {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.comment-form {
+
+  input,
+  textarea {
+    border: 1px solid $brand--primary-20;
+  }
+
+  label {
+    color: $brand--primary-80;
+    font-style: italic;
+  }
+}

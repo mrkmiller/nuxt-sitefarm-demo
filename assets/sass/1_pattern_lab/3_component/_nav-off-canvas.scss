@@ -1,0 +1,51 @@
+// Off-canvas Menus
+.off-canvas {
+  @include breakpoint($bp-medium--down) {
+    position: absolute;
+    z-index: $zindex-navbar;
+    height: 100%;
+    width: $menu-vert-width;
+    background: $menu-background-color;
+    transition: all $transition-time;
+
+    &__container {
+      position: static;
+    }
+
+    &--fixed,
+    .l-header--fixed & {
+      position: fixed;
+      overflow: auto;
+      z-index: $zindex-navbar-fixed;
+
+      // Add some bottom padding so that there is room to scroll
+      .off-canvas__container {
+        padding-bottom: $header-height--md * 2;
+      }
+    }
+
+    &--left {
+      left: 0;
+
+      .menu--closed & {
+        left: -$menu-vert-width;
+      }
+    }
+
+    &--right {
+      right: 0;
+
+      .menu--closed & {
+        right: -$menu-vert-width;
+      }
+    }
+
+    .menu--open & {
+      box-shadow: 0 10px 10px 5px rgba($gray-darker, 0.4);
+    }
+  }
+
+  @include breakpoint(max-width $menu-vert-width) {
+    width: 245px;
+  }
+}

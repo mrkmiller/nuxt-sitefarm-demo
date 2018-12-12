@@ -1,0 +1,5 @@
+.person-position-title {
+  @include breakpoint($bp-small--up) {
+    margin-top: 0;
+  }
+}

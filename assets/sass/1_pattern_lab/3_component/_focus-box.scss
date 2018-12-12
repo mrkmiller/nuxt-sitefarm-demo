@@ -1,0 +1,23 @@
+.focus-box {
+
+  &__image {
+    margin-bottom: -1px; // Fix to avoid white space when an image doesn't scale well
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @include heading--invert-box();
+  }
+
+  &__body {
+    padding: $spacer--large $fixed-spacer;
+
+    @include breakpoint($bp-medium--up) {
+      padding: $fixed-spacer--large;
+    }
+  }
+
+}

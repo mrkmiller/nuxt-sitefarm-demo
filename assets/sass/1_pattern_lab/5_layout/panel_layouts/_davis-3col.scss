@@ -1,0 +1,20 @@
+// Mimics the Panels layout called whelan
+.l-davis-3col {
+  .l-content {
+    @include breakpoint($bp-medium--up, true) {
+      @include grid-span(6, 4);
+    }
+  }
+
+  .l-sidebar-first {
+    @include breakpoint($bp-medium--up, true) {
+      @include grid-span(3, 1);
+    }
+  }
+
+  .l-sidebar-second {
+    @include breakpoint($bp-medium--up, true) {
+      @include grid-span(3, 10);
+    }
+  }
+}

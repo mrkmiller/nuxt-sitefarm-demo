@@ -1,0 +1,13 @@
+// Links
+a {
+  @include link-style();
+  outline: 0;
+
+  &:focus {
+    @include set-focus();
+  }
+
+  &:active {
+    outline: none;
+  }
+}

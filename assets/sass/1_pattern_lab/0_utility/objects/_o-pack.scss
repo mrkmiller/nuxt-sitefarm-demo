@@ -1,0 +1,147 @@
+////
+/// Pack object
+/// Adapted from Inuit CSS
+/// @group Objects
+////
+
+
+/// Pack Object: forces all elements in a region to stay in a horizontal row and
+/// fill an equal, fluid width of their parent.
+///
+/// Adapted from [Inuit CSS](https://github.com/inuitcss)
+/// @link https://github.com/inuitcss/objects.pack/blob/master/_objects.pack.scss
+/// @example markup
+/// <div class="o-pack">
+///   <div class="o-pack__item">
+///     <p>content</p>
+///   </div>
+///   <div class="o-pack__item">
+///     <p>content</p>
+///   </div>
+/// </div>
+%o-pack {
+  width: 100%; // Fill all available space.
+  display: table;
+  table-layout: fixed; // Cause children to be automatically equally sized.
+
+  // Use flexbox if available
+  .flexbox & {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    // Use flexbox if available
+    > *,
+    %o-pack__item {
+      display: block;
+      flex-basis: 0;
+      flex-grow: 1;
+      min-width: 0; // Fix for firefox - http://stackoverflow.com/questions/31967019/max-width-doesnt-work-in-flexbox
+    }
+  }
+}
+
+/// Pack Object: Item `Element`
+///
+/// Cause these children of the `.o-pack` to adopt table-like structure.
+%o-pack__item {
+  display: table-cell;
+}
+
+/// Pack Object: Auto `Modifier`
+///
+/// Cause children to pack up into available space, but not equally sized.
+%o-pack--auto {
+  table-layout: auto;
+
+  // Use flexbox if available
+  .flexbox & .o-pack__item {
+    flex-basis: auto;
+  }
+}
+
+/// Pack Object: Reverse `Modifier`
+///
+/// Reverse the direction of `.o-pack_item` elements to right-to-left.
+%o-pack--rev {
+  direction: rtl;
+
+  > .o-pack__item,
+  > %o-pack__item {
+    direction: ltr;
+  }
+}
+
+/// Pack Object: Small `Modifier`
+///
+/// Adds small gutters between items.
+%o-pack--small {
+  border-spacing: $spacer--small;
+
+  // Use flexbox if available
+  .flexbox & .o-pack__item {
+    padding: 0 $spacer--small;
+  }
+}
+
+/// Pack Object: Large `Modifier`
+///
+/// Adds large gutters between items.
+%o-pack--large {
+  border-spacing: $spacer--large;
+
+  // Use flexbox if available
+  .flexbox & .o-pack__item {
+    padding: 0 $spacer--large;
+  }
+}
+
+/// Pack Object: Remove a Pack Object styles
+///
+/// Remove the `.o-pack` from a region. This is useful when in mobile you might
+/// want to have everything align vertically instead of packed horizontally.
+/// @param {string} $class - Pass in a CSS class name (without the . ) that would be on the same element
+/// as the `.o-pack` class
+@mixin o-pack-removal($class) {
+  .flexbox .#{$class} {
+    flex-wrap: wrap;
+  }
+
+  .no-flexbox .#{$class} {
+    display: block;
+
+    .o-pack__item {
+      display: block;
+    }
+  }
+
+  .flexbox .#{$class} .o-pack__item,
+  .flexbox .#{$class} > * {
+    flex-basis: auto;
+  }
+}
+
+// Assign placeholders to classes
+.o-pack {
+  @extend %o-pack;
+}
+
+.o-pack__item {
+  @extend %o-pack__item;
+}
+
+.o-pack--auto {
+  @extend %o-pack--auto;
+}
+
+.o-pack--rev {
+  @extend %o-pack--rev;
+}
+
+.o-pack--small {
+  @extend %o-pack--small;
+}
+
+.o-pack--large {
+  @extend %o-pack--large;
+}

@@ -1,0 +1,20 @@
+// card (view mode)
+.vm-card {
+
+  &__header {
+    margin-bottom: $spacer;
+  }
+
+  &__title {
+    margin-top: 0;
+  }
+
+  &__figure {
+    max-width: 25%;
+  }
+
+  &__summary {
+    line-height: $line-height--small;
+    margin-bottom: $spacer;
+  }
+}

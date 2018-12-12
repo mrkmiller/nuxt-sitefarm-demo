@@ -1,0 +1,17 @@
+// Definition Lists
+dl {
+  overflow: hidden;
+  margin: 0 0 $spacer;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+dd + dt  {
+  margin-top: $spacer--small;
+}

@@ -1,7 +1,10 @@
 <template>
   <main class="l-main l-davis">
     <div class="panel">
-      organisms-hero-banner
+      <HeroBanner image="http://placehold.it/2000x770">
+        <template slot="title">Powered by SiteFarm and Nuxt.js</template>
+        <template slot="summary">This is a decoupled site using SiteFarm as the backend for data</template>
+      </HeroBanner>
       organisms-priority-links
     </div>
 
@@ -41,3 +44,13 @@
     </div>
   </main>
 </template>
+
+<script>
+  import HeroBanner from '~/components/HeroBanner'
+
+  export default {
+    components: {
+      HeroBanner
+    }
+  }
+</script>

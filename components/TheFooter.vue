@@ -3,33 +3,41 @@
     <div class="l-container">
       <div class="flex-footer">
         <div class="flex-footer__item">
-          molecules-site-credits
-        </div>
-        <div class="flex-footer__item">
-          <h2>Footer Menu</h2>
-          molecules-footer-nav
+          <SiteCredits />
         </div>
         <div class="flex-footer__item">
           <h2>Follow Us</h2>
-          molecules-social-follow
+          <SocialFollow />
         </div>
       </div>
 
       <div class="footer-spacer">
         <hr class="footer-spacer__hr hr-invert">
         <div class="footer-spacer__logo">
-          atoms-ucd-logo
+          <UcdLogo />
         </div>
       </div>
 
-      molecules-info-copyright
+      <InfoCopyright />
     </div>
   </footer>
 
 </template>
 
 <script>
+  import SiteCredits from '~/components/SiteCredits'
+  import InfoCopyright from '~/components/InfoCopyright'
+  import UcdLogo from '~/components/UcdLogo'
+  import SocialFollow from '~/components/SocialFollow'
+
   export default {
     name: 'TheFooter',
+
+    components: {
+      SiteCredits,
+      InfoCopyright,
+      UcdLogo,
+      SocialFollow
+    }
   }
 </script>

@@ -27,6 +27,9 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    // Normalize.
+    '@/node_modules/normalize-scss/sass/normalize/_import-now.scss',
+    // Global styles.
     '@/assets/sass/style.scss'
   ],
 
@@ -56,15 +59,15 @@ module.exports = {
    */
   styleResources: {
     scss: [
+      // Sass libraries.
       '~/node_modules/singularitygs/stylesheets/_singularitygs.scss',
       '~/node_modules/breakpoint-sass/stylesheets/_breakpoint.scss',
       '~/node_modules/sass-toolkit/stylesheets/_toolkit.scss',
       '~/node_modules/sass-burger/_burger.scss',
-      '~/node_modules/normalize-scss/sass/normalize/_import-now.scss',
-      // Global variables for site-wide use
+      // Global variables for site-wide use.
       '~/assets/sass/_variables.scss',
       '~/assets/sass/1_pattern_lab/_variables.scss',
-      // // Mixins
+      // Mixins.
       '~/assets/sass/1_pattern_lab/0_utility/_mixins.scss',
       '~/assets/sass/1_pattern_lab/0_utility/_headings-mixin.scss',
       '~/assets/sass/1_pattern_lab/0_utility/objects/**/*',

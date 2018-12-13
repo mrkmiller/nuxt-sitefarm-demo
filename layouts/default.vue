@@ -1,5 +1,5 @@
 <template>
-  <div class="page l-header--fixed">
+  <div class="page">
     <TheHeader />
     <nuxt/>
     <TheFooter />

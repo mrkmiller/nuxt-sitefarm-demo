@@ -14,7 +14,12 @@ module.exports = {
       {hid: 'description', name: 'description', content: pkg.description}
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css',
+        crossorigin: 'anonymous'
+      }
     ]
   },
 
@@ -32,7 +37,6 @@ module.exports = {
     // Global styles.
     '@/assets/sass/style.scss'
   ],
-
 
   /*
   ** Plugins to load before mounting the App
@@ -71,7 +75,7 @@ module.exports = {
       '~/assets/sass/1_pattern_lab/0_utility/_mixins.scss',
       '~/assets/sass/1_pattern_lab/0_utility/_headings-mixin.scss',
       '~/assets/sass/1_pattern_lab/0_utility/objects/**/*',
-      '~/assets/sass/1_pattern_lab/0_utility/utility_helpers/**/*',
+      '~/assets/sass/1_pattern_lab/0_utility/utility_helpers/**/*'
     ]
   },
 

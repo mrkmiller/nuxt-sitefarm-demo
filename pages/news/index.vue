@@ -20,7 +20,11 @@
         </div>
         <div class="panel o-box">
           <h2 class="panel__title">Categories</h2>
-          <CategoryFilter :links="categories" url="/news" />
+          <CategoryFilter :links="categories" />
+        </div>
+        <div class="panel o-box">
+          <h2 class="panel__title">Tags</h2>
+          <NavTags :links="tags" />
         </div>
       </div>
 
@@ -34,6 +38,7 @@
   import LatestNews from '~/components/LatestNews'
   import ArticleList from '~/components/ArticleList'
   import CategoryFilter from '~/components/CategoryFilter'
+  import NavTags from '~/components/NavTags'
 
   export default {
     components: {
@@ -41,7 +46,8 @@
       NavBreadcrumbs,
       LatestNews,
       ArticleList,
-      CategoryFilter
+      CategoryFilter,
+      NavTags
     },
 
     data () {
@@ -59,16 +65,27 @@
 
         categories: [
           {
-            id: '1',
+            url: '/news?cat=1',
             title: 'Sample Category'
           },
           {
-            id: '2',
+            url: '/news?cat=2',
             title: 'University'
           },
           {
-            id: '3',
+            url: '/news?cat=3',
             title: 'General'
+          }
+        ],
+
+        tags: [
+          {
+            url: '#',
+            title: 'Tag 1'
+          },
+          {
+            url: '#',
+            title: 'Tag 2'
           }
         ]
       }

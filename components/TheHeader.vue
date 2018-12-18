@@ -9,7 +9,7 @@
         aria-label="Toggle Main Menu">
         <span class="nav-toggle__icon nav-toggle__icon--menu">Menu</span>
       </a>
-      <div class="header__fixed-site-name"><a href="/">Nuxt SiteFarm Demo</a></div>
+      <div class="header__fixed-site-name"><a href="/">Nuxt.js SiteFarm Demo</a></div>
       <div class="l-container">
         <UcdLogo />
       </div>
@@ -20,7 +20,7 @@
           <SiteLogo />
         </div>
         <div class="o-media__body">
-          <h1 class="header__site-name">Nuxt SiteFarm Demo</h1>
+          <h1 class="header__site-name">Nuxt.js SiteFarm Demo</h1>
           <div class="header__slogan">Decouple your SiteFarm for total control!</div>
         </div>
       </div>

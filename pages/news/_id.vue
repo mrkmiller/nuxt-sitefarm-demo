@@ -33,7 +33,7 @@
         <!--</div>-->
         <div class="panel o-box">
           <h2 class="panel__title">Categories</h2>
-          <CategoryFilter :links="categories" url="/news" />
+          <CategoryFilter :links="categories" />
         </div>
         <div class="panel o-box">
           <h2 class="panel__title">Related Articles</h2>
@@ -70,11 +70,11 @@
         image: 'https://picsum.photos/1280/720?random',
         tags: [
           {
-            url: '/tags',
+            url: '#',
             title: 'Tag 1'
           },
           {
-            url: '/tags',
+            url: '#',
             title: 'Tag 2'
           }
         ],
@@ -86,15 +86,15 @@
         ],
         categories: [
           {
-            id: '1',
+            url: '/news?cat=1',
             title: 'Sample Category'
           },
           {
-            id: '2',
+            url: '/news?cat=2',
             title: 'University'
           },
           {
-            id: '3',
+            url: '/news?cat=3',
             title: 'General'
           }
         ],

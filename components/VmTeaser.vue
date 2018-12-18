@@ -16,7 +16,7 @@
       </ul>
 
       <ul class="vm-teaser__categories">
-        <li><nuxt-link to="/">Sample Category</nuxt-link></li>
+        <li><nuxt-link :to="category.url">{{ category.title }}</nuxt-link></li>
       </ul>
 
       <div class="vm-teaser__summary"><slot /></div>
@@ -46,6 +46,10 @@
       author: {
         type: String,
         default: ''
+      },
+      category: {
+        type: Object,
+        default: () => {}
       },
       image: {
         type: String,

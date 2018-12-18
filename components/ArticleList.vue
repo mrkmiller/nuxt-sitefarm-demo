@@ -4,11 +4,11 @@
       v-for="n in count"
       :key="n"
       title="I'm an interesting article"
-      url="/"
+      url="/news/sample-article"
       date="June 30, 2015"
       image="https://picsum.photos/65/65?random"
     />
-    <a href="/news">View All &raquo;</a>
+    <nuxt-link to="/news">View All &raquo;</nuxt-link>
   </section>
 </template>
 

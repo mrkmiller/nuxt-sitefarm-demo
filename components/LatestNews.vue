@@ -3,8 +3,9 @@
     <VmTeaser
       v-for="n in count"
       :key="n"
+      :category="{url: '/news?cat=1', title: 'Sample Category'}"
       title="I'm an interesting article"
-      url="/"
+      url="/news/sample-article"
       author="John Doe"
       date="June 30, 2015"
       image="https://picsum.photos/135/135?random"

@@ -8,7 +8,7 @@
       date="June 30, 2015"
       image="https://picsum.photos/65/65?random"
     />
-    <a href="/">View All &raquo;</a>
+    <a href="/news">View All &raquo;</a>
   </section>
 </template>
 

@@ -1,0 +1,58 @@
+// Default 3 region layouts.
+
+// Default grid area names
+.l-content,
+.l-sidebar-first,
+.l-sidebar-second {
+  min-width: 0; // https://github.com/kenwheeler/slick/issues/982#issuecomment-345057850
+}
+
+// Default settings for the davis layout. This will need to be used within each
+// media query because grid-gap is not recognized from a parent by autoprefixer.
+@mixin l-davis-settings() {
+  display: grid;
+  grid-column-gap: 2%;
+  grid-template-rows: max-content;
+
+  // Ensure that blocks in a split will not float further down the page.
+  @supports(grid-auto-rows: 1fr) {
+    grid-auto-rows: 1fr;
+  }
+}
+
+// Positions the first and second sidebar to the left side of the page.
+.l-davis {
+  @include breakpoint($bp-medium--up) {
+    @include l-davis-settings();
+    grid-template-columns: 1fr 2fr;
+
+    .l-content {
+      grid-column: 2;
+      grid-row: 1 / 3;
+    }
+  }
+}
+
+// Positions the first and second sidebar to the right side of the page.
+.l-davis-flipped, // Deprecated. Use the --
+.l-davis--flipped {
+  @include breakpoint($bp-medium--up) {
+    @include l-davis-settings();
+    grid-template-columns: 2fr 1fr;
+
+    .l-content {
+      grid-column: 1;
+      grid-row: 1 / 3;
+    }
+  }
+}
+
+// Positions the first and second sidebar to the sides of the page with content
+// in the middle.
+.l-davis-3col, // Deprecated. Use the --
+.l-davis--3col {
+  @include breakpoint($bp-medium--up) {
+    @include l-davis-settings();
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}

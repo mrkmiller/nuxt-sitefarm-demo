@@ -14,19 +14,19 @@
   },
   "dependencies": {
     "cross-env": "^5.2.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.4.3",
     "@nuxtjs/axios": "^5.0.0"
   },
   "devDependencies": {
-    "@nuxtjs/style-resources": "^0.1.1",
+    "@nuxtjs/style-resources": "^0.1.2",
     "babel-eslint": "^8.2.1",
-    "eslint": "^5.0.1",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-loader": "^2.0.0",
+    "eslint": "^5.14.1",
+    "eslint-config-prettier": "^3.6.0",
+    "eslint-loader": "^2.1.2",
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-vue": "^4.0.0",
-    "nodemon": "^1.18.8",
+    "nodemon": "^1.18.10",
     "sass-loader": "^7.1.0",
-    "ucd-theme-tasks": "^2.0.4"
+    "ucd-theme-tasks": "^2.0.5"
   }
 }

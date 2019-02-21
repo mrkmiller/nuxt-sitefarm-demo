@@ -43,4 +43,44 @@
     font-style: inherit;
     text-align: left;
   }
+
+  .btn,
+  .btn--primary,
+  .btn--alt,
+  .btn--invert {
+    border: 1px solid $brand--primary;
+    padding: $spacer--small $spacer;
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: inherit;
+
+    &:hover {
+      background-color: $brand--primary-70;
+      border-bottom: 1px solid $brand--primary;
+    }
+  }
+
+  .btn {
+
+    &--primary {
+      background-color: $ucd-blue;
+
+      &:hover {
+        background-color: $ucd-blue-90;
+      }
+    }
+
+    &--alt {
+      color: $link-color--secondary;
+    }
+
+    &--invert {
+      background-color: rgba($brand--primary, .4);
+      border-color: $white;
+
+      &:hover {
+        border-color: $white;
+      }
+    }
+  }
 }

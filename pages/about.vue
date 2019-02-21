@@ -3,23 +3,27 @@
 
     <PageTitle title="About Us" />
 
-    <div class="l-container l-davis-flipped">
+    <div class="l-container">
       <NavBreadcrumbs :links="breadcrumbs" />
 
-      <div class="l-content">
-        <div class="panel o-box--large">
-          <p>This is where all the content will go.</p>
-        </div>
-      </div>
+      <div class="l-davis--flipped">
 
-      <div class="l-sidebar-second">
-        <div class="panel">
-          <NavSubmenu :links="subnav" />
+        <div class="l-content">
+          <div class="panel o-box--large">
+            <p>This is where all the content will go.</p>
+          </div>
         </div>
-        <div class="panel panel--transparent panel--auxilary">
-          <h2 class="panel__title">Follow Us</h2>
-          <SocialFollow />
+
+        <div class="l-sidebar-second">
+          <div class="panel">
+            <NavSubmenu :links="subnav" />
+          </div>
+          <div class="panel panel--transparent panel--auxilary">
+            <h2 class="panel__title">Follow Us</h2>
+            <SocialFollow />
+          </div>
         </div>
+
       </div>
 
     </div>

@@ -1,0 +1,156 @@
+// Create Quad Layout defaults.
+
+// sass-lint:disable indentation
+
+// Default settings for the quad layout. This will need to be used within each
+// media query because grid-gap is not recognized from a parent by autoprefixer.
+@mixin l-quad-settings() {
+  display: grid;
+  grid-column-gap: $grid-gap;
+  grid-template-rows: max-content;
+
+  // Ensure that blocks in a split will not float further down the page.
+  @supports(grid-auto-rows: 1fr) {
+    grid-auto-rows: 1fr;
+  }
+}
+
+.l-quad {
+  // Default with all 4 regions rendered - use 2x2 in narrow breakpoint.
+  @include breakpoint($bp-narrow--up) {
+    @include l-quad-settings();
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include breakpoint($bp-wide--up) {
+    @include l-quad-settings();
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  // Default with 1 region rendered.
+  &--full {
+    @include breakpoint($bp-narrow--up) {
+      @include l-quad-settings();
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Default with 2 regions rendered.
+  &--half {
+    @include breakpoint($bp-medium--up) {
+      @include l-quad-settings();
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  // Default with 3 regions rendered.
+  &--third {
+    @include breakpoint($bp-medium--up) {
+      @include l-quad-settings();
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  // Create fixed grid.
+  &--fixed {
+    @include breakpoint($bp-medium--up) {
+      @include l-quad-settings();
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+        "first second third fourth";
+    }
+  }
+
+  // Create 2x2 grid.
+  &--2x2 {
+    @include breakpoint($bp-medium--up) {
+      @include l-quad-settings();
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "first second"
+        "third fourth";
+    }
+  }
+
+  // Create 1x2x1 grid.
+  &--1x2x1 {
+    @include breakpoint($bp-narrow--up) {
+      @include l-quad-settings();
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "first first"
+        "second third"
+        "fourth fourth";
+    }
+  }
+
+  // Create 1x3 grid.
+  &--1x3 {
+    @include breakpoint($bp-medium--up) {
+      @include l-quad-settings();
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "first first first"
+        "second third fourth";
+    }
+  }
+
+  // Create 3x1 grid.
+  &--3x1 {
+    @include breakpoint($bp-medium--up) {
+      @include l-quad-settings();
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "first second third"
+        "fourth fourth fourth";
+    }
+  }
+
+  // Create 75% 25% grid.
+  &--75-25 {
+    @include breakpoint($bp-medium--up) {
+      @include l-quad-settings();
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+        "first first first second"
+        "third fourth fourth fourth";
+    }
+  }
+
+  // Create 66% 33% grid.
+  &--66-33 {
+    @include breakpoint($bp-medium--up) {
+      @include l-quad-settings();
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "first first second"
+        "third fourth fourth";
+    }
+  }
+
+  // Regions.
+  &__region {
+    min-width: 0; // https://github.com/kenwheeler/slick/issues/982#issuecomment-345057850
+
+    &--first {
+      grid-area: first;
+      min-width: 0;
+    }
+
+    &--second {
+      grid-area: second;
+      min-width: 0;
+    }
+
+    &--third {
+      grid-area: third;
+      min-width: 0;
+    }
+
+    &--fourth {
+      grid-area: fourth;
+      min-width: 0;
+    }
+  }
+
+}

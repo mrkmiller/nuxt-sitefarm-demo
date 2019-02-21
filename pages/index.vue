@@ -1,5 +1,5 @@
 <template>
-  <main class="l-main l-davis">
+  <main class="l-main">
     <div class="panel">
       <HeroBanner image="https://picsum.photos/2000/770?image=1015">
         <template slot="title">Powered by SiteFarm and Nuxt.js</template>
@@ -8,7 +8,7 @@
       <PriorityLinks />
     </div>
 
-    <div class="l-container">
+    <div class="l-container l-davis">
       <div class="l-content">
         <div class="panel">
           <VmSpotlight

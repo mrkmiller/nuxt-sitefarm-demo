@@ -354,21 +354,11 @@ $bp-huge--down:         max-width $media-huge-max;
 $bp-narrow--landscape:  ($bp-narrow--down) (orientation landscape);
 
 
-// Setup singularity grid
+// Setup grids
 // -------------------------
 
-// Grid sizes
-@include add-grid(1); // Mobile
-// Base everything on a 12 column grid
-@include add-grid(12 at $bp-narrow--up);
-@include add-grid(12 at $bp-medium--up);
-@include add-grid(12 at $bp-wide--up);
+// First enable Autoprefixer to use grids.
+// sass-lint:disable no-css-comments
+/*! autoprefixer grid: on */
 
-// Gutters (use 1/3 of a column)
-@include add-gutter(1/3);
-
-// Uncomment to turn debugging for grids
-//.l-container {
-//  @include sgs-change("debug", true);
-//  @include background-grid($color: blue);
-//}
+$grid-gap: 2%;

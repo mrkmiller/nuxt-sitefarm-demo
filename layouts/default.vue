@@ -8,7 +8,7 @@
 
 <script>
   import TheHeader from '~/components/TheHeader'
-  const TheFooter = () => import('~/components/TheFooter')
+  import TheFooter from '~/components/TheFooter'
 
   export default {
     components: {

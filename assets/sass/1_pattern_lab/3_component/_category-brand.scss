@@ -81,7 +81,7 @@ $category-brand-bg-offset: -23px;
         background-color: tint($brand-color, 65);
 
         a {
-          color: shade($brand-color, 20);
+          color: shade($brand-color, 50);
         }
       }
     }
@@ -110,6 +110,59 @@ $category-brand-bg-offset: -23px;
 
     &:hover .category-brand__background-opacity {
       background-color: rgba($brand-color, 1);
+    }
+  }
+}
+
+// Branded buttons and links
+.category-brand__background,
+.vm-teaser--featured {
+
+  a {
+    color: $white;
+  }
+}
+
+.category-brand__background,
+.category-brand__background--lighten {
+
+  .btn {
+    border: 1px solid rgba(0, 0, 0, .5);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .5);
+      border: 1px solid rgba(0, 0, 0, .3);
+      color: $white;
+    }
+  }
+
+  .btn--alt {
+    background-color: rgba(255, 255, 255, .4);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .5);
+      color: $white;
+    }
+  }
+
+  a {
+
+    &.btn--invert {
+      background-color: rgba(0, 0, 0, .5);
+      color: $white;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .6);
+      }
+    }
+
+    &.btn--primary {
+      background-color: rgba(0, 0, 0, .5);
+      color: $white;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .6);
+      }
     }
   }
 }

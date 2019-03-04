@@ -1,5 +1,7 @@
 const pkg = require('./package')
 
+const serverBaseUrl = 'https://sitefarmdemo.test.sf.ucdavis.edu';
+
 module.exports = {
   mode: 'universal',
 
@@ -97,5 +99,10 @@ module.exports = {
         })
       }
     }
-  }
+  },
+
+  env: {
+    serverBaseUrl,
+    serverApiUrl: serverBaseUrl + '/jsonapi'
+  },
 }

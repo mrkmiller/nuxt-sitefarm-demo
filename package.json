@@ -5,18 +5,18 @@
   "author": "Mark Miller",
   "private": true,
   "scripts": {
+    "start": "npm run dev",
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/axios": "^5.12.1",
     "cross-env": "^5.2.0",
     "jsonapi-parse": "^2.0.0",
-    "nuxt": "^2.4.3"
+    "nuxt": "^2.14.0"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",

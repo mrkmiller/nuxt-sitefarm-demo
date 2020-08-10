@@ -8,17 +8,16 @@
       />
     </div>
   </div>
-
 </template>
 
 <script>
-  import FocalLinkVertical from '~/components/FocalLinkVertical'
+import FocalLinkVertical from '~/components/FocalLinkVertical'
 
-  export default {
-    name: 'PriorityLinks',
+export default {
+  name: 'PriorityLinks',
 
-    components: {
-      FocalLinkVertical
-    }
-  }
+  components: {
+    FocalLinkVertical,
+  },
+}
 </script>

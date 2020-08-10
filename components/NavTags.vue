@@ -12,14 +12,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'NavTags',
+export default {
+  name: 'NavTags',
 
-    props: {
-      links: {
-        type: Array,
-        default: () => []
-      }
-    }
-  }
+  props: {
+    links: {
+      type: Array,
+      default: () => [],
+    },
+  },
+}
 </script>

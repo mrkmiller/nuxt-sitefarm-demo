@@ -6,14 +6,16 @@
         class="quick-links__title"
         aria-controls="quick-links"
         aria-expanded="false"
-        aria-label="Toggle Quick Links Menu">
+        aria-label="Toggle Quick Links Menu"
+      >
         Quick Links<NavSubmenuToggle />
       </a>
     </h2>
     <nav
       id="quick-links"
       class="quick-links u-hidden--visually quick-links--home-site quick-links--two-columns"
-      aria-label="Quick Links Menu">
+      aria-label="Quick Links Menu"
+    >
       <ul class="menu" data-menu-name="menu-quick-links">
         <li><a href="">myucdavis</a></li>
         <li><a href="">myadmissions</a></li>
@@ -38,13 +40,13 @@
 </template>
 
 <script>
-  import NavSubmenuToggle from '~/components/NavSubmenuToggle'
+import NavSubmenuToggle from '~/components/NavSubmenuToggle'
 
-  export default {
-    name: 'QuickLinks',
+export default {
+  name: 'QuickLinks',
 
-    components: {
-      NavSubmenuToggle
-    }
-  }
+  components: {
+    NavSubmenuToggle,
+  },
+}
 </script>

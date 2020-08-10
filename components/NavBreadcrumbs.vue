@@ -8,14 +8,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'NavBreadcrumbs',
+export default {
+  name: 'NavBreadcrumbs',
 
-    props: {
-      links: {
-        type: Array,
-        default: () => []
-      }
-    }
-  }
+  props: {
+    links: {
+      type: Array,
+      default: () => [],
+    },
+  },
+}
 </script>

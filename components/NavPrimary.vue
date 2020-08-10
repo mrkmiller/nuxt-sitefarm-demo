@@ -2,7 +2,8 @@
   <nav id="primary-nav" class="primary-nav" aria-label="Main Menu">
     <ul class="menu">
       <li><nuxt-link to="/">Home</nuxt-link></li>
-      <li><nuxt-link to="/about">About Us<NavSubmenuToggle /></nuxt-link>
+      <li>
+        <nuxt-link to="/about">About Us<NavSubmenuToggle /></nuxt-link>
         <!--<ul class="menu">-->
         <!--<li><a href="#">Our Story</a></li>-->
         <!--<li><a href="#">Initiatives</a></li>-->
@@ -28,13 +29,13 @@
 </template>
 
 <script>
-  import NavSubmenuToggle from '~/components/NavSubmenuToggle'
+import NavSubmenuToggle from '~/components/NavSubmenuToggle'
 
-  export default {
-    name: 'NavPrimary',
+export default {
+  name: 'NavPrimary',
 
-    components: {
-      NavSubmenuToggle
-    }
-  }
+  components: {
+    NavSubmenuToggle,
+  },
+}
 </script>

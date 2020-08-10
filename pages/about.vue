@@ -1,13 +1,11 @@
 <template>
   <main class="l-main">
-
     <PageTitle title="About Us" />
 
     <div class="l-container">
       <NavBreadcrumbs :links="breadcrumbs" />
 
       <div class="l-davis--flipped">
-
         <div class="l-content">
           <div class="panel o-box--large">
             <p>This is where all the content will go.</p>
@@ -23,55 +21,53 @@
             <SocialFollow />
           </div>
         </div>
-
       </div>
-
     </div>
   </main>
 </template>
 
 <script>
-  import PageTitle from '~/components/PageTitle'
-  import NavBreadcrumbs from '~/components/NavBreadcrumbs'
-  import NavSubmenu from '~/components/NavSubmenu'
-  import SocialFollow from '~/components/SocialFollow'
+import PageTitle from '~/components/PageTitle'
+import NavBreadcrumbs from '~/components/NavBreadcrumbs'
+import NavSubmenu from '~/components/NavSubmenu'
+import SocialFollow from '~/components/SocialFollow'
 
-  export default {
-    components: {
-      PageTitle,
-      NavBreadcrumbs,
-      NavSubmenu,
-      SocialFollow,
-    },
+export default {
+  components: {
+    PageTitle,
+    NavBreadcrumbs,
+    NavSubmenu,
+    SocialFollow,
+  },
 
-    data () {
-      return {
-        breadcrumbs: [
-          {
-            url: '/',
-            title: 'Home'
-          },
-          {
-            url: '',
-            title: 'About'
-          }
-        ],
-        subnav: [
-          {
-            url: '/',
-            title: 'Home'
-          },
-          {
-            url: '',
-            title: 'About',
-            current: true
-          },
-          {
-            url: '/news',
-            title: 'News'
-          }
-        ]
-      }
+  data() {
+    return {
+      breadcrumbs: [
+        {
+          url: '/',
+          title: 'Home',
+        },
+        {
+          url: '',
+          title: 'About',
+        },
+      ],
+      subnav: [
+        {
+          url: '/',
+          title: 'Home',
+        },
+        {
+          url: '',
+          title: 'About',
+          current: true,
+        },
+        {
+          url: '/news',
+          title: 'News',
+        },
+      ],
     }
-  }
+  },
+}
 </script>

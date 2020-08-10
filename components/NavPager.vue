@@ -3,7 +3,7 @@
     <li
       v-for="index in count"
       :key="index"
-      :class="{'pager__item--static pager__item--current': index === current}"
+      :class="{ 'pager__item--static pager__item--current': index === current }"
       class="pager__item"
     >
       <template v-if="index === current">{{ index }}</template>
@@ -13,18 +13,18 @@
 </template>
 
 <script>
-  export default {
-    name: 'NavPager',
+export default {
+  name: 'NavPager',
 
-    props: {
-      count: {
-        type: Number,
-        default: 0
-      },
-      current: {
-        type: Number,
-        default: 1
-      }
-    }
-  }
+  props: {
+    count: {
+      type: Number,
+      default: 0,
+    },
+    current: {
+      type: Number,
+      default: 1,
+    },
+  },
+}
 </script>

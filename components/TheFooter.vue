@@ -12,7 +12,7 @@
       </div>
 
       <div class="footer-spacer">
-        <hr class="footer-spacer__hr hr-invert">
+        <hr class="footer-spacer__hr hr-invert" />
         <div class="footer-spacer__logo">
           <UcdLogo />
         </div>
@@ -21,23 +21,22 @@
       <InfoCopyright />
     </div>
   </footer>
-
 </template>
 
 <script>
-  import SiteCredits from '~/components/SiteCredits'
-  import InfoCopyright from '~/components/InfoCopyright'
-  import UcdLogo from '~/components/UcdLogo'
-  import SocialFollow from '~/components/SocialFollow'
+import SiteCredits from '~/components/SiteCredits'
+import InfoCopyright from '~/components/InfoCopyright'
+import UcdLogo from '~/components/UcdLogo'
+import SocialFollow from '~/components/SocialFollow'
 
-  export default {
-    name: 'TheFooter',
+export default {
+  name: 'TheFooter',
 
-    components: {
-      SiteCredits,
-      InfoCopyright,
-      UcdLogo,
-      SocialFollow
-    }
-  }
+  components: {
+    SiteCredits,
+    InfoCopyright,
+    UcdLogo,
+    SocialFollow,
+  },
+}
 </script>

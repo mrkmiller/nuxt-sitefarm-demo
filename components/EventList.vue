@@ -13,20 +13,20 @@
 </template>
 
 <script>
-  import VmListing from '~/components/VmListing'
+import VmListing from '~/components/VmListing'
 
-  export default {
-    name: 'EventList',
+export default {
+  name: 'EventList',
 
-    components: {
-      VmListing
+  components: {
+    VmListing,
+  },
+
+  props: {
+    count: {
+      type: Number,
+      default: 3,
     },
-
-    props: {
-      count: {
-        type: Number,
-        default: 3
-      }
-    }
-  }
+  },
+}
 </script>

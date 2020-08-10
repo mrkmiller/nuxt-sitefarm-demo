@@ -3,7 +3,9 @@
     <div class="panel">
       <HeroBanner image="https://picsum.photos/2000/770?image=1015">
         <template slot="title">Powered by SiteFarm and Nuxt.js</template>
-        <template slot="summary">This is a decoupled site using SiteFarm as the backend for data</template>
+        <template slot="summary"
+          >This is a decoupled site using SiteFarm as the backend for data
+        </template>
       </HeroBanner>
       <PriorityLinks />
     </div>
@@ -59,27 +61,27 @@
 </template>
 
 <script>
-  import HeroBanner from '~/components/HeroBanner'
-  import PriorityLinks from '~/components/PriorityLinks'
-  import FocalLink from '~/components/FocalLink'
-  import SocialFollow from '~/components/SocialFollow'
-  import YoutubeEmbed from '~/components/YoutubeEmbed'
-  import VmSpotlight from '~/components/VmSpotlight'
-  import MarketingHighlight from '~/components/MarketingHighlight'
-  import ArticleList from '~/components/ArticleList'
-  import EventList from '~/components/EventList'
+import HeroBanner from '~/components/HeroBanner'
+import PriorityLinks from '~/components/PriorityLinks'
+import FocalLink from '~/components/FocalLink'
+import SocialFollow from '~/components/SocialFollow'
+import YoutubeEmbed from '~/components/YoutubeEmbed'
+import VmSpotlight from '~/components/VmSpotlight'
+import MarketingHighlight from '~/components/MarketingHighlight'
+import ArticleList from '~/components/ArticleList'
+import EventList from '~/components/EventList'
 
-  export default {
-    components: {
-      HeroBanner,
-      PriorityLinks,
-      FocalLink,
-      SocialFollow,
-      YoutubeEmbed,
-      VmSpotlight,
-      MarketingHighlight,
-      ArticleList,
-      EventList
-    }
-  }
+export default {
+  components: {
+    HeroBanner,
+    PriorityLinks,
+    FocalLink,
+    SocialFollow,
+    YoutubeEmbed,
+    VmSpotlight,
+    MarketingHighlight,
+    ArticleList,
+    EventList,
+  },
+}
 </script>

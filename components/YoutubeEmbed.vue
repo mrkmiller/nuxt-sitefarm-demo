@@ -7,19 +7,20 @@
       class="video__iframe"
       frameborder="0"
       allow="autoplay; encrypted-media"
-      allowfullscreen />
+      allowfullscreen
+    />
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'YoutubeEmbed',
+export default {
+  name: 'YoutubeEmbed',
 
-    props: {
-      videoId: {
-        type: String,
-        required: true
-      },
-    }
-  }
+  props: {
+    videoId: {
+      type: String,
+      required: true,
+    },
+  },
+}
 </script>

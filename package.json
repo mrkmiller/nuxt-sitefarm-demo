@@ -19,7 +19,7 @@
     "nuxt": "^2.4.3"
   },
   "devDependencies": {
-    "@nuxtjs/style-resources": "^0.1.2",
+    "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^5.14.1",
     "eslint-config-prettier": "^3.6.0",
@@ -27,7 +27,7 @@
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-vue": "^4.0.0",
     "nodemon": "^1.18.10",
-    "sass-loader": "^7.1.0",
-    "ucd-theme-tasks": "^2.0.5"
+    "sass-loader": "^9.0.3",
+    "ucd-theme-tasks": "^3.0.0"
   }
 }

@@ -24,6 +24,6 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "prettier": "^2.0.5",
     "sass-loader": "^9.0.3",
-    "ucd-theme-tasks": "^3.0.0"
+    "ucd-theme-tasks": "^4.0.1"
   }
 }
